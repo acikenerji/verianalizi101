@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 dplyr | ‘dplyr’ Paketine Giriş: 2019 Yılı PTF - SMF Verisi</title>
+  <meta name="description" content="2 dplyr | ‘dplyr’ Paketine Giriş: 2019 Yılı PTF - SMF Verisi" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 dplyr | ‘dplyr’ Paketine Giriş: 2019 Yılı PTF - SMF Verisi" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 dplyr | ‘dplyr’ Paketine Giriş: 2019 Yılı PTF - SMF Verisi" />
+  
+  
+  
+
+<meta name="author" content="Baran Dogru" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="rstudio-cloud.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Giriş</a></li>
+<li class="chapter" data-level="2" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>2</b> dplyr</a><ul>
+<li class="chapter" data-level="2.1" data-path="dplyr.html"><a href="dplyr.html#hazırlıklar"><i class="fa fa-check"></i><b>2.1</b> Hazırlıklar</a></li>
+<li class="chapter" data-level="2.2" data-path="dplyr.html"><a href="dplyr.html#önemli-fonksiyonlar"><i class="fa fa-check"></i><b>2.2</b> Önemli Fonksiyonlar</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="dplyr.html"><a href="dplyr.html#selectrename"><i class="fa fa-check"></i><b>2.2.1</b> <code>select</code>/<code>rename</code></a></li>
+<li class="chapter" data-level="2.2.2" data-path="dplyr.html"><a href="dplyr.html#filter"><i class="fa fa-check"></i><b>2.2.2</b> <code>filter</code></a></li>
+<li class="chapter" data-level="2.2.3" data-path="dplyr.html"><a href="dplyr.html#distinct"><i class="fa fa-check"></i><b>2.2.3</b> <code>distinct</code></a></li>
+<li class="chapter" data-level="2.2.4" data-path="dplyr.html"><a href="dplyr.html#arrange"><i class="fa fa-check"></i><b>2.2.4</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="2.2.5" data-path="dplyr.html"><a href="dplyr.html#mutatetransmute"><i class="fa fa-check"></i><b>2.2.5</b> <code>mutate</code>/<code>transmute</code></a></li>
+<li class="chapter" data-level="2.2.6" data-path="dplyr.html"><a href="dplyr.html#group_bysummarise"><i class="fa fa-check"></i><b>2.2.6</b> <code>group_by</code>/<code>summarise</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rstudio-cloud.html"><a href="rstudio-cloud.html"><i class="fa fa-check"></i><b>3</b> RStudio Cloud</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">‘dplyr’ Paketine Giriş: 2019 Yılı PTF - SMF Verisi</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dplyr" class="section level1">
+<h1><span class="header-section-number">2</span> dplyr</h1>
+<div id="hazırlıklar" class="section level2">
+<h2><span class="header-section-number">2.1</span> Hazırlıklar</h2>
+<p>Başlamadan önce yapılması gereken iki şey var. Birincisi <code>dplyr</code> paketini indirmek ve <code>setwd()</code> fonksiyonunu kullanarak çalışma dizinini belirlemek. Paketi indirmek için <code>install.packages(&quot;dplyr&quot;)</code> , paketi yüklemek için ise <code>library(dplyr)</code> komutları kullanılabilir.</p>
+<p>İkinci hazırlık aşaması ise, <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml" title="ptfSmf">EPİAŞ’ın Raporlama Sayfası</a> ’ından 2019 yılı Piyasa Takas Fiyatı (PTF) - Sistem Marjinal Fiyatı (SMF) dosyasının .xls formatında belirlediğimiz çalışma dizini dosyasına indirilmesi ve okunması.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># dplyr paketinin yüklenmesi</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># 2019 yılı PTF - SMF verisinin okunması</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">ptfsmf &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;ptf-smf.xls&quot;</span>)</a></code></pre></div>
+<p>Tablonun ilk haline <code>print()</code> fonksiyonu ile göz atılabilir.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">print</span>(ptfsmf)</a></code></pre></div>
+<pre><code>##                Tarih    PTF    SMF Pozitif Dengesizlik Fiyatı (TL/MWh)
+##    1: 01.01.19 00:00 100,38   5,00                                4,85
+##    2: 01.01.19 01:00  96,72  95,04                               92,19
+##    3: 01.01.19 02:00  81,60  79,60                               77,21
+##    4: 01.01.19 03:00  38,58   0,00                                0,00
+##    5: 01.01.19 04:00  11,52   0,00                                0,00
+##   ---                                                                 
+## 8756: 31.12.19 19:00 327,82 241,18                              233,94
+## 8757: 31.12.19 20:00 319,57 221,00                              214,37
+## 8758: 31.12.19 21:00 316,54 196,18                              190,29
+## 8759: 31.12.19 22:00 314,70 195,00                              189,15
+## 8760: 31.12.19 23:00 311,84 195,00                              189,15
+##       Negatif Dengesizlik Fiyatı (TL/MWh)         SMF Yön
+##    1:                              103,39 ↓Enerji Fazlası
+##    2:                               99,62 ↓Enerji Fazlası
+##    3:                               84,05 ↓Enerji Fazlası
+##    4:                               39,74 ↓Enerji Fazlası
+##    5:                               11,87 ↓Enerji Fazlası
+##   ---                                                    
+## 8756:                              337,65 ↓Enerji Fazlası
+## 8757:                              329,16 ↓Enerji Fazlası
+## 8758:                              326,04 ↓Enerji Fazlası
+## 8759:                              324,14 ↓Enerji Fazlası
+## 8760:                              321,20 ↓Enerji Fazlası</code></pre>
+<p>Aynı işlem <code>glimpse()</code> fonksiyonu ile de yapılabilir.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 6
+## $ Tarih                                 &lt;chr&gt; &quot;01.01.19 00:00&quot;, &quot;01.01.19 01:…
+## $ PTF                                   &lt;chr&gt; &quot;100,38&quot;, &quot;96,72&quot;, &quot;81,60&quot;, &quot;38…
+## $ SMF                                   &lt;chr&gt; &quot;5,00&quot;, &quot;95,04&quot;, &quot;79,60&quot;, &quot;0,00…
+## $ `Pozitif Dengesizlik Fiyatı (TL/MWh)` &lt;chr&gt; &quot;4,85&quot;, &quot;92,19&quot;, &quot;77,21&quot;, &quot;0,00…
+## $ `Negatif Dengesizlik Fiyatı (TL/MWh)` &lt;chr&gt; &quot;103,39&quot;, &quot;99,62&quot;, &quot;84,05&quot;, &quot;39…
+## $ `SMF Yön`                             &lt;chr&gt; &quot;↓Enerji Fazlası&quot;, &quot;↓Enerji Faz…</code></pre>
+<p>Fark edileceği üzere, bu fonksiyon tabloda var olan sütunları satırlarda gösterirken değişken tiplerinin ne olduğuna ve totalde kaç gözlem olduğuna da değiniyor. Burada “Bağlantı Operatörü”nün kullanımına dikkat edilmelidir. Bu operatör sayesinde kullanılan data.table tek bir kez yazılarak istenildiği kadar işlem yapılabilir ve bu sayede daha tertipli bir koda ulaşılabilir.</p>
+<p>Bu aşamada karakter tipindeki değişkenlerin tarih sütunu için “POSIXct” (datetime), geri kalanlar sütunlar için ise “numeric” tipine dönüşümü sağlanmıştır. Bu dökumanın amacı bu dönüşümleri göstermek olmadığından bahsedilen önemli fonksiyonlar tablonun düzenlemiş hali üzerinden anlatılacaktır. (İlgilenenler için data manipülasyonu aşamasındaki kodlara buradan ulaşılabilir.)</p>
+<p>Şimdi tablonun bahsedilen düzenlenmiş haline bir kez daha göz atacak olunursa,</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 5
+## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…
+## $ PTF   &lt;dbl&gt; 100.38, 96.72, 81.60, 38.58, 11.52, 11.14, 11.14, 24.37, 34.50,…
+## $ SMF   &lt;dbl&gt; 5.00, 95.04, 79.60, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ PDF   &lt;dbl&gt; 4.85, 92.19, 77.21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ NDF   &lt;dbl&gt; 103.39, 99.62, 84.05, 39.74, 11.87, 11.47, 11.47, 25.10, 35.53,…</code></pre>
+</div>
+<div id="önemli-fonksiyonlar" class="section level2">
+<h2><span class="header-section-number">2.2</span> Önemli Fonksiyonlar</h2>
+<div id="selectrename" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> <code>select</code>/<code>rename</code></h3>
+<p><code>select</code> fonksiyonu belirli sutünları seçmek için kullanılır. Örneğin tablonun sadece Tarih ve Piyasa Takas Fiyatı’nı (PTF) göstermesi isteniyorsa,</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Tarih, PTF) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 2
+## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…
+## $ PTF   &lt;dbl&gt; 100.38, 96.72, 81.60, 38.58, 11.52, 11.14, 11.14, 24.37, 34.50,…</code></pre>
+<p>Veya (bu örnek için pek faydalı gibi görünmese de) içinde “P” harfini barındıran sütunlar seçilmek istendiğinde <code>contains</code> kelimesi kullanılabilir.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">contains</span>(<span class="st">&quot;P&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 2
+## $ PTF &lt;dbl&gt; 100.38, 96.72, 81.60, 38.58, 11.52, 11.14, 11.14, 24.37, 34.50, 4…
+## $ PDF &lt;dbl&gt; 4.85, 92.19, 77.21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.0…</code></pre>
+<p>Bu kelime gibi <code>select</code> fonksiyonu içinde kullanılabilecek diğer kelimeler: <code>starts_with</code>, <code>ends_with</code>, <code>matches</code> olarak sıralanabilir.</p>
+<p>Aynı zamanda, eğer sütunların sırası biliniyorsa iki sütun arasındaki her sütunu seçmek için <code>:</code> operatörü kullanılabilir. Örneğin Sistem Marjinal Fiyatı (SMF) ve Negatif Dengesizlik Fiyatı (NDF) arasındaki sütunları seçmek için,</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(SMF<span class="op">:</span>NDF) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 3
+## $ SMF &lt;dbl&gt; 5.00, 95.04, 79.60, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.0…
+## $ PDF &lt;dbl&gt; 4.85, 92.19, 77.21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.0…
+## $ NDF &lt;dbl&gt; 103.39, 99.62, 84.05, 39.74, 11.87, 11.47, 11.47, 25.10, 35.53, 4…</code></pre>
+<p><code>rename</code> fonksiyonu ise adından da anlaşılabileceği üzere bir sütunun adını değiştirmek için kullanılır. Örneğin “PTF” sütununun ismini “ptf” olarak değiştirmek isteniyorsa <code>rename</code> kullanılabilir.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">ptf =</span> PTF) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 5
+## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…
+## $ ptf   &lt;dbl&gt; 100.38, 96.72, 81.60, 38.58, 11.52, 11.14, 11.14, 24.37, 34.50,…
+## $ SMF   &lt;dbl&gt; 5.00, 95.04, 79.60, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ PDF   &lt;dbl&gt; 4.85, 92.19, 77.21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ NDF   &lt;dbl&gt; 103.39, 99.62, 84.05, 39.74, 11.87, 11.47, 11.47, 25.10, 35.53,…</code></pre>
+</div>
+<div id="filter" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> <code>filter</code></h3>
+<p><code>filter</code> fonksiyonu temel olarak istenilen koşulları sağlayan satırları seçmek için kullanılır. Örneğin Piyasa Takas Fiyatı’nın 250’den düşük olduğu satırlar incelenebilir.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(PTF <span class="op">&lt;</span><span class="st"> </span><span class="dv">250</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 2,453
+## Variables: 5
+## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…
+## $ PTF   &lt;dbl&gt; 100.38, 96.72, 81.60, 38.58, 11.52, 11.14, 11.14, 24.37, 34.50,…
+## $ SMF   &lt;dbl&gt; 5.00, 95.04, 79.60, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ PDF   &lt;dbl&gt; 4.85, 92.19, 77.21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ NDF   &lt;dbl&gt; 103.39, 99.62, 84.05, 39.74, 11.87, 11.47, 11.47, 25.10, 35.53,…</code></pre>
+<p>Gözlem sayısının 8670’den 2453’e düştüğü görülebiliyor. Aynı şekilde bir değerin büyüklüğü <code>&gt;</code>, küçüklük veya eşitliği <code>&lt;=</code>, büyüklük veya eşitliği <code>&gt;=</code>, eşitliği ise <code>==</code> sembolleriyle incelenebilir.</p>
+<p>Birden fazla koşulun sağlanması gerekiyorsa ise, “VE” operatörü için <code>&amp;</code>, “VEYA” operatörü için <code>|</code>
+sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200’den küçük, Negatif Dengesizlik Fiyatı’nın ise 200’den büyük olduğu satırlar incelenebilir.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(PDF<span class="op">&lt;</span><span class="dv">200</span> <span class="op">&amp;</span><span class="st"> </span>NDF<span class="op">&gt;</span><span class="dv">200</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 1,256
+## Variables: 5
+## $ Tarih &lt;dttm&gt; 2019-01-01 17:00:00, 2019-01-01 18:00:00, 2019-01-01 21:00:00,…
+## $ PTF   &lt;dbl&gt; 286.93, 291.52, 285.18, 204.89, 287.66, 296.99, 296.86, 293.16,…
+## $ SMF   &lt;dbl&gt; 172.00, 172.00, 173.00, 172.98, 168.60, 173.00, 190.00, 190.00,…
+## $ PDF   &lt;dbl&gt; 166.84, 166.84, 167.81, 167.79, 163.54, 167.81, 184.30, 184.30,…
+## $ NDF   &lt;dbl&gt; 295.54, 300.27, 293.74, 211.04, 296.29, 305.90, 305.77, 301.95,…</code></pre>
+<p>Bu koşulları sağlayan 1256 satır olduğu görülüyor. Eğer bir koşulu sağlamayan satırlar aranıyorsa ise koşulun başına <code>!</code> yazılmasıyla bu ters etki taratılabilir.</p>
+</div>
+<div id="distinct" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> <code>distinct</code></h3>
+<p><code>distinct</code> fonksiyonu bir veya birden fazla sütunu baz alarak özgün satırları bulmak için kullanılır. Örneğin var olan tabloda her bir saat için 2 tane satır var ve bunlardan kurtulmak isteniyor. Öncelikle tabloya göz atılırsa,</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">8</span>) <span class="co"># head fonksiyonu da print ve glipmse fonksiyonlari ile benzer islevde</span></a></code></pre></div>
+<pre><code>##                 Tarih    PTF   SMF   PDF    NDF
+## 1 2019-01-01 00:00:00 100.38  5.00  4.85 103.39
+## 2 2019-01-01 00:00:00 100.38  5.00  4.85 103.39
+## 3 2019-01-01 01:00:00  96.72 95.04 92.19  99.62
+## 4 2019-01-01 01:00:00  96.72 95.04 92.19  99.62
+## 5 2019-01-01 02:00:00  81.60 79.60 77.21  84.05
+## 6 2019-01-01 02:00:00  81.60 79.60 77.21  84.05
+## 7 2019-01-01 03:00:00  38.58  0.00  0.00  39.74
+## 8 2019-01-01 03:00:00  38.58  0.00  0.00  39.74</code></pre>
+<p>Bu durumdan kurtulmak için <code>distinct</code> fonksiyonu kullanılabilir. Örneğin,</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">distinct</span>(Tarih) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 1
+## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…</code></pre>
+<p>Dikkat edileceği üzere yalnızca Tarih sütunu korundu. Diğer sütunları da korumak için <code>.keep_all = TRUE</code> komutu kullanılmalıdır.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">distinct</span>(Tarih, <span class="dt">.keep_all =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 5
+## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…
+## $ PTF   &lt;dbl&gt; 100.38, 96.72, 81.60, 38.58, 11.52, 11.14, 11.14, 24.37, 34.50,…
+## $ SMF   &lt;dbl&gt; 5.00, 95.04, 79.60, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ PDF   &lt;dbl&gt; 4.85, 92.19, 77.21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ NDF   &lt;dbl&gt; 103.39, 99.62, 84.05, 39.74, 11.87, 11.47, 11.47, 25.10, 35.53,…</code></pre>
+</div>
+<div id="arrange" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> <code>arrange</code></h3>
+<p><code>arrange</code> fonksiyonu Excel’deki sıralama özelliğine benzetilebilir. Varsayılan durumunda A’dan Z’ye ya da küçükten büyüğe sıralanır. Tam tersi sıralama için <code>desc()</code> fonksiyonu kullanılmalıdır. Örneğin artan Piyasa Takas Fiyatlarına göre sıralamak için,</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(PTF) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 5
+## $ Tarih &lt;dttm&gt; 2019-02-17 09:00:00, 2019-03-24 12:00:00, 2019-03-24 13:00:00,…
+## $ PTF   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+## $ SMF   &lt;dbl&gt; 30, 5, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ PDF   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+## $ NDF   &lt;dbl&gt; 30.90, 5.15, 0.00, 0.00, 0.00, 10.30, 0.00, 0.00, 0.00, 0.00, 0…</code></pre>
+<p>Bir başka örnekte Tarih, Pozitif Dengesizlik Fiyatı (PDF) ve Negatif Dengesizlik Farkı (NDF) sütunları seçilip azalan NDF’ye göre sıralanabilir.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Tarih, PDF, NDF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="st">            </span><span class="kw">arrange</span>(<span class="kw">desc</span>(NDF)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="st">            </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 3
+## $ Tarih &lt;dttm&gt; 2019-06-27 15:00:00, 2019-06-27 16:00:00, 2019-06-27 14:00:00,…
+## $ PDF   &lt;dbl&gt; 436.50, 436.50, 453.74, 385.24, 303.44, 307.22, 369.73, 339.50,…
+## $ NDF   &lt;dbl&gt; 515.00, 514.99, 502.40, 501.76, 462.47, 449.82, 438.96, 432.60,…</code></pre>
+<p>Dikkat edileceği üzere NDF değerleri azalarak devam ediyor. Ayrıca <code>arrange</code> fonksiyonunun içine birden fazla değer girerek ilk değerin eşitliği durumunda ikinci değerin karar vermesi sağlanabilir.</p>
+</div>
+<div id="mutatetransmute" class="section level3">
+<h3><span class="header-section-number">2.2.5</span> <code>mutate</code>/<code>transmute</code></h3>
+<p><code>mutate</code> fonksiyonu genellikle var olan değişkenlerle yapılan operasyonlar sonucu yeni değişkenler (sütunlar) yatarmak için kullanılır. Örneğin Pozitif Dengesizlik Fiyatı (PDF) ve Negatif Dengesizlik Fiyatı (NDF) arasındaki Dengesizlik Fiyatı (DF) sütununda gösterilmek istenirse,</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">DF =</span> PDF <span class="op">-</span><span class="st"> </span>NDF) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 6
+## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…
+## $ PTF   &lt;dbl&gt; 100.38, 96.72, 81.60, 38.58, 11.52, 11.14, 11.14, 24.37, 34.50,…
+## $ SMF   &lt;dbl&gt; 5.00, 95.04, 79.60, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ PDF   &lt;dbl&gt; 4.85, 92.19, 77.21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ NDF   &lt;dbl&gt; 103.39, 99.62, 84.05, 39.74, 11.87, 11.47, 11.47, 25.10, 35.53,…
+## $ DF    &lt;dbl&gt; -98.54, -7.43, -6.84, -39.74, -11.87, -11.47, -11.47, -25.10, -…</code></pre>
+<p>Bu fonksiyonun içerisinde base R fonksiyonları da kullanılabilir. Örneğin yeni bir Denge sütununda PDF NDF’den büyükse “Pozitif”, tam tersiyse “Negatif, eşitlik varsa ise”Dengeli&quot; yanıtı alabilmek için,</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Denge =</span> <span class="kw">ifelse</span>(PDF<span class="op">&gt;</span>NDF,<span class="st">&quot;Pozitif&quot;</span>,<span class="st">&quot;Negatif&quot;</span>),</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">                  <span class="dt">Denge =</span> <span class="kw">ifelse</span>(PDF<span class="op">==</span>NDF,<span class="st">&quot;Dengeli&quot;</span>,Denge)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="st">            </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 6
+## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…
+## $ PTF   &lt;dbl&gt; 100.38, 96.72, 81.60, 38.58, 11.52, 11.14, 11.14, 24.37, 34.50,…
+## $ SMF   &lt;dbl&gt; 5.00, 95.04, 79.60, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ PDF   &lt;dbl&gt; 4.85, 92.19, 77.21, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0…
+## $ NDF   &lt;dbl&gt; 103.39, 99.62, 84.05, 39.74, 11.87, 11.47, 11.47, 25.10, 35.53,…
+## $ Denge &lt;chr&gt; &quot;Negatif&quot;, &quot;Negatif&quot;, &quot;Negatif&quot;, &quot;Negatif&quot;, &quot;Negatif&quot;, &quot;Negatif…</code></pre>
+<p><code>transmute</code> fonksiyonu da <code>mutate</code> fonksiyonu ile benzer bir işleve sahip olmasının yanında <code>select</code> fonksiyonunun belirli sütunları seçme işlevine de sahiptir. Örneğin PTF/SMF oranını Tarih’in de gösterileceği şekilde sergileyip bu orana göre artan şekilde sıralamak için,</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">transmute</span>(Tarih, PTF, SMF, <span class="dt">PTF_SMF_Oran =</span> PTF<span class="op">/</span>SMF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="st">            </span><span class="kw">arrange</span>(PTF_SMF_Oran) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="st">            </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 8,760
+## Variables: 4
+## $ Tarih        &lt;dttm&gt; 2019-02-17 09:00:00, 2019-03-24 12:00:00, 2019-03-24 16…
+## $ PTF          &lt;dbl&gt; 0.00, 0.00, 0.00, 2.00, 1.00, 0.99, 0.99, 1.00, 1.01, 5.…
+## $ SMF          &lt;dbl&gt; 30.00, 5.00, 10.00, 244.00, 100.00, 90.99, 75.99, 76.00,…
+## $ PTF_SMF_Oran &lt;dbl&gt; 0.000000000, 0.000000000, 0.000000000, 0.008196721, 0.01…</code></pre>
+</div>
+<div id="group_bysummarise" class="section level3">
+<h3><span class="header-section-number">2.2.6</span> <code>group_by</code>/<code>summarise</code></h3>
+<p>Bu iki fonksiyon çoğunlukla özetleme tabloları çıkarmak için kullanılır. <code>group_by</code> sütunlara göre veriyi gruplamak, <code>summarise</code> ise gruplanan bu verilere göre istenen özeti çıkarmakla görevlidir. Örneğin günlük ortalama PTF fiyat bilgisi için (Burada “POSIX” formatında olan Tarih sütununu “Date” formatına çevirebilmek için as.Date() fonksiyonu kullanılmıştır.),</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">gunluk_ort_ptf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="st">                  </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as.Date</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-3" data-line-number="3"><span class="st">                  </span><span class="kw">group_by</span>(Gun) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-4" data-line-number="4"><span class="st">                  </span><span class="kw">summarise</span>(<span class="dt">Gunluk_Ort_PTF =</span> <span class="kw">mean</span>(PTF)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-5" data-line-number="5"><span class="st">                  </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 365
+## Variables: 2
+## $ Gun            &lt;date&gt; 2019-01-01, 2019-01-02, 2019-01-03, 2019-01-04, 2019-…
+## $ Gunluk_Ort_PTF &lt;dbl&gt; 121.0229, 228.7592, 238.6304, 212.3496, 244.3354, 236.…</code></pre>
+<p>Burada kullanılan <code>mean</code> fonksiyonu dışında maksimum değer için <code>max</code>, minimum değer için <code>min</code>, medyan için <code>median</code>, total değer için <code>sum</code> ve grupladığımız değişkene ait gözlem sayısını saymak için ise <code>n()</code>fonksiyonları kullanılabilir.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rstudio-cloud.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["_main.pdf", "PDF"]],
+"toc": {
+"collapse": "none",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+</body>
+
+</html>
