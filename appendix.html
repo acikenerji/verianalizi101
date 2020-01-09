@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi</title>
-  <meta name="description" content="R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi" />
+  <title>Appendix | R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi</title>
+  <meta name="description" content="Appendix | R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi" />
+  <meta property="og:title" content="Appendix | R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi" />
+  <meta name="twitter:title" content="Appendix | R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="ggplot2-ile-veri-görselleştirme.html"/>
 
-<link rel="next" href="dplyr-ile-veri-manipülasyonu.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -168,26 +168,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R ile Veri Analizine Giriş: 2019 Yılı PTF - SMF Verisi</h1>
-<p class="author"><em>Baran Dogru</em></p>
-<p class="date"><em>1/7/2020</em></p>
+<div id="appendix" class="section level1 unnumbered">
+<h1>Appendix</h1>
+<div id="rstudio-cloudda-çalışma" class="section level2 unnumbered">
+<h2>RStudio Cloud’da Çalışma</h2>
+<p>RStudio Cloud, R ve RStudio’yu bilgisayarınıza indirmeden çevrimiçi olarak kodlarınızı yazabileceğiniz, çalışmalarınızı is arkadaşlarınızla rahatça paylaşabileceğiniz, gerekli paketleri bilgisayarınıza yükleyip yüklemediğinizi dert etmeyeceğiniz tamamen ücretsiz bir platformdur.</p>
+<p>RStudio Cloud’a erişmek ve platformu kullanmak için aşağıdaki adımları izleyebilirsiniz.</p>
+<ol style="list-style-type: decimal">
+<li>Tercih ettiğiniz web tarayıcıda “RStudio Cloud” yazarak aratılınca karşınıza çıkan ilk linke tıkladığınızda bu ekranla karşılaşacaksınız. Ana ekranın sağ üst köşesindeki “Sign Up” butonuna tıklayarak kayıt ekranına ulaşın.</li>
+</ol>
+<p><img src="ana_ekran.png" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Karşınıza çıkan kayıt formunu doldurun.</li>
+</ol>
+<p><img src="kayit_ekrani.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Kaydınızı tamamlayın ve hesabınıza giriş yapın. Artık RStudio Cloud’u kullanmaya hazırsınız.</li>
+</ol>
+<p><img src="hesap_ekrani.png" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>İlk projenizi oluşturmak için “New Project” butonuna tıklayın.</li>
+</ol>
+<p><img src="ilk_proje.png" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Açılan ilk projenize R Script dosyası eklemek için ise üstteki bardan “File”, “New File” ve “R Script” sırasıyla seçin. Artık R’da kod yazmaya hazırsınız.</li>
+</ol>
+<p><img src="ilk_rscript.png" /></p>
 </div>
-<div id="giriş" class="section level1">
-<h1><span class="header-section-number">1</span> Giriş</h1>
-<div id="amaç" class="section level2">
-<h2><span class="header-section-number">1.1</span> Amaç</h2>
-<p>Bu dökümanın temel amacı, <code>R</code> yazılım dilini ve spesifik olarak <code>dplyr</code>, <code>ggplot2</code>, <code>lubridate</code> ve <code>markdown</code> gibi paket ve araçları kullanarak Elektrik Piyasasında yapılabilecek analizlere örnekler göstermek ve bu sektörde çalışan insanlara destek olmaktır.</p>
-</div>
-<div id="veriseti" class="section level2">
-<h2><span class="header-section-number">1.2</span> Dökümanda Kullanılan Veri Seti</h2>
-<p>Bu dökümanda kullanılan veri seti EPİAŞ’ın Raporlama Sayfasından elde edilen 01.01.2019 - 31.12.2019 tarihli Piyasa Takas Fiyatı (PTF) - Sistem Marjinal Fiyatı (SMF) verisidir.</p>
-<p>Veri setinin ham haline <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml" title="ptfSmf">EPİAŞ’ın Raporlama Sayfası</a> ’ndan ya da buraya tıklayarak ulaşabilirsiniz.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># yukarida buraya yazan yere ham verinin .xls hali linklenecek</span></a></code></pre></div>
-<p>Bu veri setinin ham halinin örneklerde rahatlıkla kullanılabilmesi adına bazı format ve isim değişlikleri yapılmıştır ve bu yazının kapsamını aştığından bu dönüşümlerin nasıl yapıldığı anlatılmayacaktır. İlgilenenler için ise bu kodlar <a href="appendix.html#veri-seti-düzenlemeleri">Veri Seti Düzenlemeleri</a> kısmında bulunabilir.</p>
-<p>Veri setinin örneklere uygun şekilde hazırlanmış haline ise aşağıdaki kodu R’da çalıştırarak ulaşabilirsiniz.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># gerekli duzenlemelerin yapildigi veri setini rds olarak indirmelerini saglayacak kod</span></a></code></pre></div>
-<p>Bu aşamada veri seti okunduktan sonra geri kalan bütün hazırlıklar her bölümde ayrı ayrı detaylı bir şekilde anlatılacaktır. Örneklerle ilgilenmeye başlamadan önce çalışma dizininizin doğru yerde belirlendiğinden emin olmak adına <code>getwd()</code> komutunu konsola yazarak üzerinde çalıştığınız belgenin bilgisayarınızda kayıtlı olduğu yerle uyumlu olduğunu kontrol edebilirsiniz.</p>
+<div id="veri-seti-düzenlemeleri" class="section level2 unnumbered">
+<h2>Veri Seti Düzenlemeleri</h2>
+<p>Bu bölümde ilgilenenler için veri setinin ham hali elde edildikten sonra <a href="dplyr-ile-veri-manipülasyonu.html#dplyr-ile-veri-manipülasyonu">dplyr ile Veri Manipülasyonu</a> bölümünde kullanılan haline dönüştürmek için gereken kodlar paylaşılacaktır.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># pozitif ve negatif dengesizlik sutunlarinin isimlerinin duzenlenmesi</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">4</span>] =<span class="st"> &quot;PDF&quot;</span></a>
+<a class="sourceLine" id="cb48-3" data-line-number="3"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">5</span>] =<span class="st"> &quot;NDF&quot;</span></a>
+<a class="sourceLine" id="cb48-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb48-5" data-line-number="5"><span class="co"># tarih ve saatin POSIX formatina cevrilmesi</span></a>
+<a class="sourceLine" id="cb48-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Tarih_Yeni =</span> <span class="kw">as.POSIXct</span>(ptfsmf<span class="op">$</span>Tarih,<span class="dt">format=</span><span class="st">&quot;%d.%m.%y %H:%M&quot;</span>, <span class="st">&quot;GMT&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-7" data-line-number="7"><span class="st">                     </span><span class="kw">select</span>(Tarih_Yeni, PTF, SMF, PDF, NDF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-8" data-line-number="8"><span class="st">                     </span><span class="kw">rename</span>(<span class="dt">Tarih =</span> Tarih_Yeni)</a>
+<a class="sourceLine" id="cb48-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb48-10" data-line-number="10"><span class="co"># geri kalan 4 sutunun numeric classina cevrilmesi</span></a>
+<a class="sourceLine" id="cb48-11" data-line-number="11">ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)],</a>
+<a class="sourceLine" id="cb48-12" data-line-number="12">                          <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, x))))</a></code></pre></div>
 
 </div>
 </div>
@@ -196,8 +218,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="ggplot2-ile-veri-görselleştirme.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="dplyr-ile-veri-manipülasyonu.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
