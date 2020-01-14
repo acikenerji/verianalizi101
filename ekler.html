@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI</title>
-  <meta name="description" content="R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI" />
+  <title>Ekler | R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI</title>
+  <meta name="description" content="Ekler | R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI" />
+  <meta property="og:title" content="Ekler | R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI" />
+  <meta name="twitter:title" content="Ekler | R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="ggplot2-ile-veri-görselleştirme.html"/>
 
-<link rel="next" href="dplyr-ile-veri-manipülasyonu.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -179,67 +179,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI</h1>
-</div>
-<div id="giriş" class="section level1">
-<h1><span class="header-section-number">1</span> Giriş</h1>
-<div id="amaç" class="section level2">
-<h2><span class="header-section-number">1.1</span> Amaç</h2>
-<p>Bu dökümanın temel amacı, <code>R</code> yazılım dilinin yüklenmesi ve kurulmasından başlayarak çeşitli veri manipülasyonlarının nasıl gerçekleştirilebileceğini ve bu verilerin nasıl kolaylıkla ve oldukça şık bir biçimde görselleştirilebileceğini enerji piyasası verileriyle ve yine enerji piyasasına uyumlu örneklerle uygulamaya dökmektir. Bu dökümanın, enerji sektöründe ve benzeri diğer sektörlerde rol alan bireyler için oldukça yararlı olduğuna inanıyor, şimdiden kolaylıklar diliyoruz.</p>
-</div>
-<div id="kurulum" class="section level2">
-<h2><span class="header-section-number">1.2</span> Kurulum</h2>
-<div id="r-ve-rstudionun-indirilmesi" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> R ve RStudio’nun İndirilmesi</h3>
-<p>Öncelikle ücretsiz bir istatistiksel programlama dili olan R’ın yüklenmesi gerekiyor. R’ı indirmek için <a href="https://cran.rstudio.com/" class="uri">https://cran.rstudio.com/</a> sitesine ilerleyiniz ve işletim sisteminize uygun olan versiyonuna tıklayarak indirmeyi başlatınız.</p>
-<p>Daha sonra güçlü bir kullanıcı arayüzü olan RStudio’nun indirilmesi gerekiyor. Onun için de <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a> linkini kullanabilirsiniz. İndirme tamamlandıktan sonra direktifler takip edilerek RStudio kurulumu da tamamlanmış olacaktır.</p>
-</div>
-<div id="kurulumun-test-edilmesi" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Kurulumun Test Edilmesi</h3>
-<p>Kurulumlar tamamlandıktan sonra sisteminizin çalıştığından emin olmak adına RStudio’yu açın ve Konsol veya “Console” yazan yere tıklayarak basit bir kod yazın. Örneğin <code>x &lt;- 3 + 4</code> yazın ve <code>ENTER</code>’a tıklayın. Herhangi bir hata almadığınızdan emin olduğunuzda bu kitapta kullanılan veri setinin nasıl indirileceğini anlatan kısma geçmeye hazırsınız.</p>
-</div>
-<div id="rstudio-cloud" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> RStudio Cloud</h3>
-<p>Eğer bütün bu indirmeleri yapmak istemezseniz ise, yine bir RStudio ürünü olan tamamen ücretsiz ve herhangi bir indirmeye ihtiyaç duymayan çevrimiçi platform RStudio Cloud uygulamasını ziyaret edebilirsiniz. Bu işlemlerin nasıl yapılacağının anlatıldığı <a href="ekler.html#rstudio-cloudda-çalışma">RStudio Cloud’da Çalışma</a> bölümüne göz atabilirsiniz.</p>
-</div>
-</div>
-<div id="veriseti" class="section level2">
-<h2><span class="header-section-number">1.3</span> Dökümanda Kullanılan Veri Seti</h2>
-<div id="veri-setine-ilk-bakış" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Veri Setine İlk Bakış</h3>
-<p>Nasıl indireleceği ve üzerinde ne gibi işlemler uygulanabileceği daha sonraki bölümlerde anlatılacak olan veri setinin öncelikle ne gibi veriler içerdiğine ve bunların özellikle piyasaya hakim olmayanlar için kısa bir özetine ihtiyaç vardır.</p>
-<p>Bu dökümanda EPİAŞ Raporlama Sayfası’nda paylaşılan Piyasa Takas Fiyatı (PTF) - Sistem Marjinal Fiyatı (SMF) verisi kullanılmıştır. Ham veride bu iki veriye ek olarak Pozitif Dengesizlik Fiyatı ve Negatif Dengesizlik Fiyatı verileri de yer almaktadır. Bu ifadelerin ne olduğundan kısaca bahsetmek gerekirse,</p>
+<div id="ekler" class="section level1 unnumbered">
+<h1>Ekler</h1>
+<div id="yazarlar-hakkında" class="section level2 unnumbered">
+<h2>Yazarlar Hakkında</h2>
 <ul>
-<li><p><em>Piyasa Takas Fiyatı (PTF)</em>: Gün öncesi piyasasında (GÖP) verilmiş olan teklifler sonucu arz ve talebin kesiştiği noktada meydana gelen fiyat olarak adlandırılabilir.</p></li>
-<li><em>Sistem Marjinal Fiyatı (SMF)</em>: Sistemin enerji açığı ya da fazlası gösterdiği durumlarda Dengeleme Güç Piyasası’nda YAL ve YAT talimatlarına göre net talimat hacmine takabül eden teklif fiyatı olarak adlandırılabilir.<br />
-</li>
-<li><p><em>Pozitif Dengesizlik Fiyatı (PDF)</em>: Sistemde enerji fazlası olduğunda enerjinin normalden daha ucuza çıkarılmasını sağlayan fiyat değeri olarak düşünülebilir. Gelecekte buna benzer dengesizliklerin oluşmasına engel olma amaçlı bir nevi ceza olarak düşünülebilecek Pozitif Dengesizlik Fiyatı aşağıdaki gibi hesaplanır.</p></li>
+<li><em>Baran Doğru</em></li>
 </ul>
-<p><span class="math display">\[ PDF (TL/MWH) = 0.97*min(PTF,SMF) \]</span></p>
-<ul>
-<li><em>Negatif Dengesizlik Fiyatı (NDF)</em>: Sistemde enerji açığı olduğunda enerjinin normalden daha pahalıya alınmasını sağlayan fiyat değeri olarak düşünülebilir. Gelecekte buna benzer dengesizliklerin oluşmasına engel olma amaçlı bir nevi ceza olarak düşünülebilecek Negatif Dengesizlik Fiyatı aşağıdaki gibi hesaplanır.</li>
-</ul>
-<p><span class="math display">\[ NDF (TL/MWH) = 1.03*maks(PTF,SMF) \]</span></p>
+<p>Baran Doğru, Boğaziçi Üniversitesi Endüstri Mühendisliği 3. sınıf öğrencisidir. Veri bilimine büyük ilgi duyan Baran Doğru Algopoly’de staj yaptığı dönemde bu dökumanın oluşturulmasında büyük pay sahibi olmuştur. Kendisine ulaşmak için <a href="https://www.linkedin.com/in/barandogru/">LinkedIn</a> hesabını ziyaret edebilirsiniz.</p>
 </div>
-<div id="veri-setinin-indirilmesi" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> Veri Setinin İndirilmesi</h3>
-<p>Bu dökümanda kullanılan veri seti EPİAŞ’ın Raporlama Sayfasından elde edilen 01.01.2019 - 31.12.2019 tarihli Piyasa Takas Fiyatı (PTF) - Sistem Marjinal Fiyatı (SMF) verisidir.</p>
-<p>Veri setinin ham haline <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml" title="ptfSmf">EPİAŞ’ın Raporlama Sayfası</a> ’ndan ya da <a href="https://github.com/acikenerji/verianalizi101/blob/master/ptf-smf.xls?raw=true">buraya</a> tıklayarak ulaşabilirsiniz.<br />
-Bu veri setini direkt olarak RStudio içerisinden indirmek de ayrıca mümkün. Bu işlemi ise aşağıdaki kutuda yer alan kodu konsolda çalıştırarak gerçekleştirebilirsiniz.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(readxl)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">download.file</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">              master/ptf-smf.xls?raw=true&quot;</span>,</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">              <span class="dt">destfile=</span><span class="st">&quot;ptf-smf.xls&quot;</span>)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;ptf-smf.xls&quot;</span>)</a></code></pre></div>
-<p>Bu veri setinin ham halinin örneklerde rahatlıkla kullanılabilmesi adına bazı format ve isim değişlikleri yapılmıştır ve bu yazının kapsamını aştığından bu dönüşümlerin nasıl yapıldığı anlatılmayacaktır. İlgilenenler için ise bu kodlar <a href="ekler.html#veri-seti-düzenlemeleri">Veri Seti Düzenlemeleri</a> kısmında bulunabilir.</p>
-<p>Veri setinin örneklere uygun şekilde hazırlanmış haline ise aşağıdaki kodu R’da çalıştırarak ulaşabilirsiniz.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">ptfsmf &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/master/</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">                      duzenlenmis_ptfsmf.rds?raw=true&quot;</span>))</a></code></pre></div>
-<p>Bu aşamada veri seti okunduktan sonra geri kalan bütün hazırlıklar her bölümde ayrı ayrı detaylı bir şekilde anlatılacaktır. Örneklerle ilgilenmeye başlamadan önce çalışma dizininizin doğru yerde belirlendiğinden emin olmak adına <code>getwd()</code> komutunu konsola yazarak üzerinde çalıştığınız belgenin bilgisayarınızda kayıtlı olduğu yerle uyumlu olduğunu kontrol edebilirsiniz.</p>
+<div id="rstudio-cloudda-çalışma" class="section level2 unnumbered">
+<h2>RStudio Cloud’da Çalışma</h2>
+<p>RStudio Cloud, R ve RStudio’yu bilgisayarınıza indirmeden çevrimiçi olarak kodlarınızı yazabileceğiniz, çalışmalarınızı is arkadaşlarınızla rahatça paylaşabileceğiniz, gerekli paketleri bilgisayarınıza yükleyip yüklemediğinizi dert etmeyeceğiniz tamamen ücretsiz bir platformdur.</p>
+<p>RStudio Cloud’a erişmek ve platformu kullanmak için aşağıdaki adımları izleyebilirsiniz.</p>
+<ol style="list-style-type: decimal">
+<li>Tercih ettiğiniz web tarayıcıda “RStudio Cloud” yazarak aratılınca karşınıza çıkan ilk linke tıkladığınızda bu ekranla karşılaşacaksınız. Ana ekranın sağ üst köşesindeki “Sign Up” butonuna tıklayarak kayıt ekranına ulaşın.</li>
+</ol>
+<p><img src="ana_ekran.png" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Karşınıza çıkan kayıt formunu doldurun.</li>
+</ol>
+<p><img src="kayit_ekrani.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Kaydınızı tamamlayın ve hesabınıza giriş yapın. Artık RStudio Cloud’u kullanmaya hazırsınız.</li>
+</ol>
+<p><img src="hesap_ekrani.png" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>İlk projenizi oluşturmak için “New Project” butonuna tıklayın.</li>
+</ol>
+<p><img src="ilk_proje.png" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Açılan ilk projenize R Script dosyası eklemek için ise üstteki bardan “File”, “New File” ve “R Script” sırasıyla seçin. Artık R’da kod yazmaya hazırsınız.</li>
+</ol>
+<p><img src="ilk_rscript.png" /></p>
+</div>
+<div id="veri-seti-düzenlemeleri" class="section level2 unnumbered">
+<h2>Veri Seti Düzenlemeleri</h2>
+<p>Bu bölümde ilgilenenler için veri setinin ham hali elde edildikten sonra <a href="dplyr-ile-veri-manipülasyonu.html#dplyr-ile-veri-manipülasyonu">dplyr ile Veri Manipülasyonu</a> bölümünde kullanılan haline dönüştürmek için gereken kodlar paylaşılacaktır.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="co"># pozitif ve negatif dengesizlik sutunlarinin isimlerinin duzenlenmesi</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">4</span>] =<span class="st"> &quot;PDF&quot;</span></a>
+<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">5</span>] =<span class="st"> &quot;NDF&quot;</span></a>
+<a class="sourceLine" id="cb53-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb53-5" data-line-number="5"><span class="co"># tarih ve saatin POSIX formatina cevrilmesi</span></a>
+<a class="sourceLine" id="cb53-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Tarih_Yeni =</span> </a>
+<a class="sourceLine" id="cb53-7" data-line-number="7">                              <span class="kw">as.POSIXct</span>(ptfsmf<span class="op">$</span>Tarih,<span class="dt">format=</span><span class="st">&quot;%d.%m.%y %H:%M&quot;</span>, <span class="st">&quot;GMT&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb53-8" data-line-number="8"><span class="st">                     </span><span class="kw">select</span>(Tarih_Yeni, PTF, SMF, PDF, NDF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb53-9" data-line-number="9"><span class="st">                     </span><span class="kw">rename</span>(<span class="dt">Tarih =</span> Tarih_Yeni)</a>
+<a class="sourceLine" id="cb53-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb53-11" data-line-number="11"><span class="co"># geri kalan 4 sutunun numeric classina cevrilmesi</span></a>
+<a class="sourceLine" id="cb53-12" data-line-number="12">ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)],</a>
+<a class="sourceLine" id="cb53-13" data-line-number="13">                          <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, x))))</a></code></pre></div>
+</div>
+<div id="kaynakça" class="section level2 unnumbered">
+<h2>Kaynakça</h2>
+<ul>
+<li><p>dplyr Paketi : <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr CheatSheet</a></p></li>
+<li><p>ggplot2 Paketi : <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot2 Cheatsheet</a></p></li>
+<li><p>Bookdown Paketi ile Kitap Oluşturma : <a href="https://bookdown.org/yihui/bookdown/">bookdown</a></p></li>
+<li><p>Veri Seti : <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml">EPİAŞ Raporlama Sayfası</a></p></li>
+<li><p>Piyasa Hakkında : <a href="https://www.teias.gov.tr/tr/yayinlar-raporlar/piyasa-raporlari">Türkiye Elektrik Piyasası</a></p></li>
+</ul>
 
-</div>
 </div>
 </div>
             </section>
@@ -247,8 +247,8 @@ Bu veri setini direkt olarak RStudio içerisinden indirmek de ayrıca mümkün. 
           </div>
         </div>
       </div>
+<a href="ggplot2-ile-veri-görselleştirme.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="dplyr-ile-veri-manipülasyonu.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
