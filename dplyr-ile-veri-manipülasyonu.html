@@ -131,7 +131,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#kurulum"><i class="fa fa-check"></i><b>1.2</b> Kurulum</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#r-ve-rstudionun-indirilmesi"><i class="fa fa-check"></i><b>1.2.1</b> R ve RStudio’nun İndirilmesi</a></li>
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#kurulumun-test-edilmesi"><i class="fa fa-check"></i><b>1.2.2</b> Kurulumun Test Edilmesi</a></li>
-<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2.3</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#gerekli-paketlerin-indirilip-yüklenmesi"><i class="fa fa-check"></i><b>1.2.3</b> Gerekli Paketlerin İndirilip Yüklenmesi</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2.4</b> RStudio Cloud</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#veriseti"><i class="fa fa-check"></i><b>1.3</b> Dökümanda Kullanılan Veri Seti</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#veri-setine-ilk-bakış"><i class="fa fa-check"></i><b>1.3.1</b> Veri Setine İlk Bakış</a></li>
@@ -191,14 +192,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Yukarıda bahsedilen bütün fonksiyonlar ayrı ayrı ele alınacak ve her biri için örnek kullanımlar gösterilecektir. Ayrıca “pipe operator” olarak adlandırılan “Bağlantı Operatörü” (<code>%&gt;%</code>) de kısaca anlatılacak ve bütün döküman boyunca kullanılacaktır.</p>
 <div id="hazırlıklar" class="section level2">
 <h2><span class="header-section-number">2.1</span> Hazırlıklar</h2>
-<p>Bu bölüme başlamadan önce yapılması gereken şey <code>dplyr</code> paketini indirmek ve paketi yüklemek. Paketi indirmek için <code>install.packages(&quot;dplyr&quot;)</code> , paketi yüklemek için ise <code>library(dplyr)</code> komutları kullanılabilir.</p>
+<p>Bu bölüme başlamadan önce yapılması gereken şey <code>dplyr</code> paketini indirmek ve paketi yüklemek. Paketi indirmek için <code>install.packages(&quot;dplyr&quot;)</code> , paketi yüklemek için ise <code>library(dplyr)</code> komutları kullanılabilir. Bu adımları hali hazırda gerçekleştirdiyseniz <a href="dplyr-ile-veri-manipülasyonu.html#önemli-fonksiyonlar">Önemli Fonksiyonlar</a> bölümüne geçebilirsiniz.</p>
 <p>Bu bölümde devam etmeden önce veri setini indirdiğinizden emin olun. Henüz indirmediyseniz <a href="index.html#veriseti">Veri Seti</a> bölümünü ziyaret ediniz.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># dplyr paketinin indirilmesi</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># dplyr paketinin yüklenmesi</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># dplyr paketinin indirilmesi</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># dplyr paketinin yüklenmesi</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <p>Tablonun ilk haline <code>glimpse()</code> fonksiyonu ile göz atılabilir.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</a></code></pre></div>
 <pre><code>## Observations: 8,760
 ## Variables: 5
 ## $ Tarih &lt;dttm&gt; 2019-01-01 00:00:00, 2019-01-01 01:00:00, 2019-01-01 02:00:00,…
@@ -213,7 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="selectrename" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> <code>select</code>/<code>rename</code></h3>
 <p><code>select</code> fonksiyonu belirli sutünları seçmek için kullanılır. Örneğin tablonun sadece Tarih ve Piyasa Takas Fiyatı’nı (PTF) göstermesi isteniyorsa,</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Tarih, PTF)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Tarih, PTF)</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 2
 ##    Tarih                 PTF
 ##    &lt;dttm&gt;              &lt;dbl&gt;
@@ -229,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 2019-01-01 09:00:00  45.2
 ## # … with 8,750 more rows</code></pre>
 <p>Veya (bu örnek için pek faydalı gibi görünmese de) içinde “P” harfini barındıran sütunlar seçilmek istendiğinde <code>contains</code> kelimesi kullanılabilir.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">contains</span>(<span class="st">&quot;P&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">contains</span>(<span class="st">&quot;P&quot;</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 2
 ##      PTF   PDF
 ##    &lt;dbl&gt; &lt;dbl&gt;
@@ -246,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 8,750 more rows</code></pre>
 <p>Bu kelime gibi <code>select</code> fonksiyonu içinde kullanılabilecek diğer kelimeler: <code>starts_with</code>, <code>ends_with</code>, <code>matches</code> olarak sıralanabilir. Bu kelimeler ve daha fazlasının anlatıldığı <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr Cheatsheet</a> dökümanına göz atılabilir.</p>
 <p>Aynı zamanda, eğer sütunların sırası biliniyorsa iki sütun arasındaki her sütunu seçmek için <code>:</code> operatörü kullanılabilir. Örneğin Sistem Marjinal Fiyatı (SMF) ve Negatif Dengesizlik Fiyatı (NDF) arasındaki sütunları seçmek için,</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(SMF<span class="op">:</span>NDF)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(SMF<span class="op">:</span>NDF)</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 3
 ##      SMF   PDF   NDF
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -262,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10   0    0     46.6
 ## # … with 8,750 more rows</code></pre>
 <p><code>rename</code> fonksiyonu ise adından da anlaşılabileceği üzere bir sütunun adını değiştirmek için kullanılır. Örneğin “PTF” sütununun ismini “ptf” olarak değiştirmek isteniyorsa <code>rename</code> kullanılabilir.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">ptf =</span> PTF)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">ptf =</span> PTF)</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 5
 ##    Tarih                 ptf   SMF   PDF   NDF
 ##    &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -281,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="filter" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> <code>filter</code></h3>
 <p><code>filter</code> fonksiyonu temel olarak istenilen koşulları sağlayan satırları seçmek için kullanılır. Örneğin Piyasa Takas Fiyatı’nın 250’den düşük olduğu satırlar incelenebilir.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(PTF <span class="op">&lt;</span><span class="st"> </span><span class="dv">250</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(PTF <span class="op">&lt;</span><span class="st"> </span><span class="dv">250</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 2,453 x 5
 ##    Tarih                 PTF   SMF   PDF   NDF
 ##    &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -299,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Gözlem sayısının 8670’den 2453’e düştüğü görülebiliyor. Aynı şekilde bir değerin büyüklüğü <code>&gt;</code>, küçüklük veya eşitliği <code>&lt;=</code>, büyüklük veya eşitliği <code>&gt;=</code>, eşitliği ise <code>==</code> sembolleriyle incelenebilir.</p>
 <p>Birden fazla koşulun sağlanması gerekiyorsa ise, “VE” operatörü için <code>&amp;</code>, “VEYA” operatörü için <code>|</code>
 sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200’den küçük, Negatif Dengesizlik Fiyatı’nın ise 200’den büyük olduğu satırlar incelenebilir.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(PDF<span class="op">&lt;</span><span class="dv">200</span> <span class="op">&amp;</span><span class="st"> </span>NDF<span class="op">&gt;</span><span class="dv">200</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(PDF<span class="op">&lt;</span><span class="dv">200</span> <span class="op">&amp;</span><span class="st"> </span>NDF<span class="op">&gt;</span><span class="dv">200</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 1,256 x 5
 ##    Tarih                 PTF   SMF   PDF   NDF
 ##    &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -319,7 +320,7 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 <div id="arrange" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> <code>arrange</code></h3>
 <p><code>arrange</code> fonksiyonu Excel’deki sıralama özelliğine benzetilebilir. Varsayılan durumunda A’dan Z’ye ya da küçükten büyüğe sıralanır. Tam tersi sıralama için <code>desc()</code> fonksiyonu kullanılmalıdır. Örneğin artan Piyasa Takas Fiyatlarına göre sıralamak için,</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(PTF)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(PTF)</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 5
 ##    Tarih                 PTF   SMF   PDF   NDF
 ##    &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -335,8 +336,8 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 ## 10 2019-04-14 14:00:00     0     0     0  0   
 ## # … with 8,750 more rows</code></pre>
 <p>Bir başka örnekte Tarih, Pozitif Dengesizlik Fiyatı (PDF) ve Negatif Dengesizlik Farkı (NDF) sütunları seçilip azalan NDF’ye göre sıralanabilir.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Tarih, PDF, NDF) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="st">            </span><span class="kw">arrange</span>(<span class="kw">desc</span>(NDF))</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Tarih, PDF, NDF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="st">            </span><span class="kw">arrange</span>(<span class="kw">desc</span>(NDF))</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 3
 ##    Tarih                 PDF   NDF
 ##    &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;
@@ -352,8 +353,8 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 ## 10 2019-07-09 16:00:00  373.  433.
 ## # … with 8,750 more rows</code></pre>
 <p>Dikkat edileceği üzere NDF değerleri azalarak devam ediyor. Ayrıca <code>arrange</code> fonksiyonunun içine birden fazla değer girerek ilk değerin eşitliği durumunda ikinci değerin karar vermesi sağlanabilir. Örneğin PTF değerinin 0 olduğu son gün aşağıdaki gibi bulunabilir.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Tarih, PTF) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="st">           </span><span class="kw">arrange</span>(PTF, <span class="kw">desc</span>(Tarih))</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Tarih, PTF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="st">           </span><span class="kw">arrange</span>(PTF, <span class="kw">desc</span>(Tarih))</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 2
 ##    Tarih                 PTF
 ##    &lt;dttm&gt;              &lt;dbl&gt;
@@ -374,7 +375,7 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 <h3><span class="header-section-number">2.2.4</span> <code>mutate</code>/<code>transmute</code></h3>
 <p><code>mutate</code> fonksiyonu genellikle var olan değişkenlerle yapılan operasyonlar sonucu yeni değişkenler (sütunlar) yatarmak için kullanılır.</p>
 <p>Örneğin yeni bir gün sütunu eklenmek istenirse (burada <code>lubridate</code> paketinin <code>as_date()</code> fonksiyonu kullanılmıştır.),</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as_date</span>(Tarih))</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as_date</span>(Tarih))</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 6
 ##    Tarih                 PTF   SMF   PDF   NDF Gun       
 ##    &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;    
@@ -390,7 +391,7 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 ## 10 2019-01-01 09:00:00  45.2   0    0     46.6 2019-01-01
 ## # … with 8,750 more rows</code></pre>
 <p>Veya <a href="index.html#veri-setine-ilk-bakış">Veri Setine İlk Bakış</a> bölümünde anlatıldığı üzere Pozitif Dengesizlik Fiyatı (PDF) hesaplanmak istenirse,</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">PDF_Yeni =</span> <span class="kw">ifelse</span>(PTF<span class="op">&lt;</span>SMF, <span class="fl">0.97</span><span class="op">*</span>PTF, <span class="fl">0.97</span><span class="op">*</span>SMF))</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">PDF_Yeni =</span> <span class="kw">ifelse</span>(PTF<span class="op">&lt;</span>SMF, <span class="fl">0.97</span><span class="op">*</span>PTF, <span class="fl">0.97</span><span class="op">*</span>SMF))</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 6
 ##    Tarih                 PTF   SMF   PDF   NDF PDF_Yeni
 ##    &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -415,9 +416,9 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 <!-- ptfsmf <- sabit -->
 <!-- ``` -->
 <p><code>transmute</code> fonksiyonu da <code>mutate</code> fonksiyonu ile benzer bir işleve sahip olmasının yanında <code>select</code> fonksiyonunun belirli sütunları seçme işlevine de sahiptir. Örneğin <code>lubridate</code> paketinin <code>as_date()</code> fonksiyonunu kullanarak yeni bir “Gün” sütunu açıp “PTF” ve “SMF” sütunlarını da seçmek ve azalan PTF’ye göre sıralamak için,</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="st">  </span><span class="kw">transmute</span>(PTF, SMF, Gün =<span class="st"> </span>lubridate<span class="op">::</span><span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(PTF))</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="st">  </span><span class="kw">transmute</span>(PTF, SMF, Gün =<span class="st"> </span>lubridate<span class="op">::</span><span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(PTF))</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 3
 ##      PTF   SMF Gün       
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;    
@@ -436,10 +437,10 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 <div id="group_bysummarise" class="section level3">
 <h3><span class="header-section-number">2.2.5</span> <code>group_by</code>/<code>summarise</code></h3>
 <p>Bu iki fonksiyon çoğunlukla özetleme tabloları çıkarmak için kullanılır. <code>group_by</code> sütunlara göre veriyi gruplamak, <code>summarise</code> ise gruplanan bu verilere göre istenen özeti çıkarmakla görevlidir. Örneğin günlük ortalama PTF fiyat bilgisi için,</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Gun) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Gunluk_Ort_PTF =</span> <span class="kw">mean</span>(PTF))</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Gun) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Gunluk_Ort_PTF =</span> <span class="kw">mean</span>(PTF))</a></code></pre></div>
 <pre><code>## # A tibble: 365 x 2
 ##    Gun        Gunluk_Ort_PTF
 ##    &lt;date&gt;              &lt;dbl&gt;
@@ -459,9 +460,9 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 <div id="distinct" class="section level3">
 <h3><span class="header-section-number">2.2.6</span> <code>distinct</code></h3>
 <p><code>distinct</code> fonksiyonu bir veya birden fazla sütunu baz alarak özgün satırları bulmak için kullanılır. Örneğin var olan tabloda bir “Gün” sütunu var ve her güne dair yalnızca bir değer incelenmek isteniyor. Bu durumdan kurtulmak için <code>distinct</code> fonksiyonu kullanılabilir. Örneğin,</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="st">  </span><span class="kw">distinct</span>(Gun)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-3" data-line-number="3"><span class="st">  </span><span class="kw">distinct</span>(Gun)</a></code></pre></div>
 <pre><code>## # A tibble: 365 x 1
 ##    Gun       
 ##    &lt;date&gt;    
@@ -477,9 +478,9 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 ## 10 2019-01-10
 ## # … with 355 more rows</code></pre>
 <p>Dikkat edileceği üzere yalnızca Gün sütunu korundu. Diğer sütunları da korumak için <code>.keep_all = TRUE</code> komutu kullanılmalıdır.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="st">  </span><span class="kw">distinct</span>(Gun, <span class="dt">.keep_all =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gun =</span> <span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="st">  </span><span class="kw">distinct</span>(Gun, <span class="dt">.keep_all =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 365 x 6
 ##    Tarih                  PTF   SMF    PDF    NDF Gun       
 ##    &lt;dttm&gt;               &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;date&gt;    

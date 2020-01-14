@@ -131,7 +131,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#kurulum"><i class="fa fa-check"></i><b>1.2</b> Kurulum</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#r-ve-rstudionun-indirilmesi"><i class="fa fa-check"></i><b>1.2.1</b> R ve RStudio’nun İndirilmesi</a></li>
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#kurulumun-test-edilmesi"><i class="fa fa-check"></i><b>1.2.2</b> Kurulumun Test Edilmesi</a></li>
-<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2.3</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#gerekli-paketlerin-indirilip-yüklenmesi"><i class="fa fa-check"></i><b>1.2.3</b> Gerekli Paketlerin İndirilip Yüklenmesi</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2.4</b> RStudio Cloud</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#veriseti"><i class="fa fa-check"></i><b>1.3</b> Dökümanda Kullanılan Veri Seti</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#veri-setine-ilk-bakış"><i class="fa fa-check"></i><b>1.3.1</b> Veri Setine İlk Bakış</a></li>
@@ -197,10 +198,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="kurulumun-test-edilmesi" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Kurulumun Test Edilmesi</h3>
-<p>Kurulumlar tamamlandıktan sonra sisteminizin çalıştığından emin olmak adına RStudio’yu açın ve Konsol veya “Console” yazan yere tıklayarak basit bir kod yazın. Örneğin <code>x &lt;- 3 + 4</code> yazın ve <code>ENTER</code>’a tıklayın. Herhangi bir hata almadığınızdan emin olduğunuzda bu kitapta kullanılan veri setinin nasıl indirileceğini anlatan kısma geçmeye hazırsınız.</p>
+<p>Kurulumlar tamamlandıktan sonra sisteminizin çalıştığından emin olmak adına RStudio’yu açın ve Konsol veya “Console” yazan yere tıklayarak basit bir kod yazın. Örneğin <code>x &lt;- 3 + 4</code> yazın ve <code>ENTER</code>’a tıklayın. Herhangi bir hata almadığınızdan emin olduğunuzda bir sonraki bölüme geçebilirsiniz.</p>
+</div>
+<div id="gerekli-paketlerin-indirilip-yüklenmesi" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Gerekli Paketlerin İndirilip Yüklenmesi</h3>
+<p>Bu bölümde kitabın ilerleyen aşamalarında kullanılacak paketlerin indirilmesi ve yüklenmesi tamamlanacaktır. Veri manipülasyonu için dplyr paketi, veri görselleştirmesi için ggplot2 paketi kullanılacaktır. Paketleri indirmek için aşağıdaki kodu RStudio’da çalıştırabilirsiniz. (İndirme ile alakalı kodları bir kere çalıştırmanız yetecektir.)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
+<p>İndirilen paketlerin yüklenmesi için ise kullanılması gereken kod aşağıda bulunabilir. (Bu kodları ise programı her çalıştırdığınızda uygulamanız gerekmektedir.)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<p>Yüklemeler de tamamlandığında bu kitapta kullanılan veri setinin nasıl indirileceğini anlatan kısma geçmeye hazırsınız.</p>
 </div>
 <div id="rstudio-cloud" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> RStudio Cloud</h3>
+<h3><span class="header-section-number">1.2.4</span> RStudio Cloud</h3>
 <p>Eğer bütün bu indirmeleri yapmak istemezseniz ise, yine bir RStudio ürünü olan tamamen ücretsiz ve herhangi bir indirmeye ihtiyaç duymayan çevrimiçi platform RStudio Cloud uygulamasını ziyaret edebilirsiniz. Bu işlemlerin nasıl yapılacağının anlatıldığı <a href="ekler.html#rstudio-cloudda-çalışma">RStudio Cloud’da Çalışma</a> bölümüne göz atabilirsiniz.</p>
 </div>
 </div>
@@ -226,17 +237,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">1.3.2</span> Veri Setinin İndirilmesi</h3>
 <p>Bu dökümanda kullanılan veri seti EPİAŞ’ın Raporlama Sayfasından elde edilen 01.01.2019 - 31.12.2019 tarihli Piyasa Takas Fiyatı (PTF) - Sistem Marjinal Fiyatı (SMF) verisidir.</p>
 <p>Veri setinin ham haline <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml" title="ptfSmf">EPİAŞ’ın Raporlama Sayfası</a> ’ndan ya da <a href="https://github.com/acikenerji/verianalizi101/blob/master/ptf-smf.xls?raw=true">buraya</a> tıklayarak ulaşabilirsiniz.<br />
-Bu veri setini direkt olarak RStudio içerisinden indirmek de ayrıca mümkün. Bu işlemi ise aşağıdaki kutuda yer alan kodu konsolda çalıştırarak gerçekleştirebilirsiniz.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(readxl)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">download.file</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">              master/ptf-smf.xls?raw=true&quot;</span>,</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">              <span class="dt">destfile=</span><span class="st">&quot;ptf-smf.xls&quot;</span>)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;ptf-smf.xls&quot;</span>)</a></code></pre></div>
+Bu veri setini direkt olarak RStudio içerisinden indirmek de ayrıca mümkün. Bu işlemi ise aşağıdaki kutuda yer alan adimlari izleyerek gerçekleştirebilirsiniz.</p>
+<ul>
+<li>Excel dosyasını okumayı sağlayacak <code>readxl</code> paketinin indirilmesi.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</a></code></pre></div>
+<ul>
+<li><code>readxl</code> paketinin yüklenmesi.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">library</span>(readxl)</a></code></pre></div>
+<ul>
+<li>Ham verinin okunması ve <code>ptfsmf</code> objesine atanması.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">download.file</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/master/ptf-smf.xls?raw=true&quot;</span>,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">              <span class="dt">destfile=</span><span class="st">&quot;ptf-smf.xls&quot;</span>)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">ptfsmf &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;ptf-smf.xls&quot;</span>)</a></code></pre></div>
 <p>Bu veri setinin ham halinin örneklerde rahatlıkla kullanılabilmesi adına bazı format ve isim değişlikleri yapılmıştır ve bu yazının kapsamını aştığından bu dönüşümlerin nasıl yapıldığı anlatılmayacaktır. İlgilenenler için ise bu kodlar <a href="ekler.html#veri-seti-düzenlemeleri">Veri Seti Düzenlemeleri</a> kısmında bulunabilir.</p>
 <p>Veri setinin örneklere uygun şekilde hazırlanmış haline ise aşağıdaki kodu R’da çalıştırarak ulaşabilirsiniz.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">ptfsmf &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/master/</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">                      duzenlenmis_ptfsmf.rds?raw=true&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">ptfsmf &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/master/duzenlenmis_ptfsmf.rds?raw=true&quot;</span>))</a></code></pre></div>
 <p>Bu aşamada veri seti okunduktan sonra geri kalan bütün hazırlıklar her bölümde ayrı ayrı detaylı bir şekilde anlatılacaktır. Örneklerle ilgilenmeye başlamadan önce çalışma dizininizin doğru yerde belirlendiğinden emin olmak adına <code>getwd()</code> komutunu konsola yazarak üzerinde çalıştığınız belgenin bilgisayarınızda kayıtlı olduğu yerle uyumlu olduğunu kontrol edebilirsiniz.</p>
 
 </div>
