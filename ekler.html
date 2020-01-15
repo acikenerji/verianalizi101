@@ -218,19 +218,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="veri-seti-düzenlemeleri" class="section level2 unnumbered">
 <h2>Veri Seti Düzenlemeleri</h2>
 <p>Bu bölümde ilgilenenler için veri setinin ham hali elde edildikten sonra <a href="dplyr-ile-veri-manipülasyonu.html#dplyr-ile-veri-manipülasyonu">dplyr ile Veri Manipülasyonu</a> bölümünde kullanılan haline dönüştürmek için gereken kodlar paylaşılacaktır.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="co"># pozitif ve negatif dengesizlik sutunlarinin isimlerinin duzenlenmesi</span></a>
-<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">4</span>] =<span class="st"> &quot;PDF&quot;</span></a>
-<a class="sourceLine" id="cb73-3" data-line-number="3"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">5</span>] =<span class="st"> &quot;NDF&quot;</span></a>
-<a class="sourceLine" id="cb73-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb73-5" data-line-number="5"><span class="co"># tarih ve saatin POSIX formatina cevrilmesi</span></a>
-<a class="sourceLine" id="cb73-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Tarih_Yeni =</span> </a>
-<a class="sourceLine" id="cb73-7" data-line-number="7">                              <span class="kw">as.POSIXct</span>(ptfsmf<span class="op">$</span>Tarih,<span class="dt">format=</span><span class="st">&quot;%d.%m.%y %H:%M&quot;</span>, <span class="st">&quot;GMT&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb73-8" data-line-number="8"><span class="st">                     </span><span class="kw">select</span>(Tarih_Yeni, PTF, SMF, PDF, NDF) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb73-9" data-line-number="9"><span class="st">                     </span><span class="kw">rename</span>(<span class="dt">Tarih =</span> Tarih_Yeni)</a>
-<a class="sourceLine" id="cb73-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb73-11" data-line-number="11"><span class="co"># geri kalan 4 sutunun numeric classina cevrilmesi</span></a>
-<a class="sourceLine" id="cb73-12" data-line-number="12">ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)],</a>
-<a class="sourceLine" id="cb73-13" data-line-number="13">                          <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, x))))</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="co"># pozitif ve negatif dengesizlik sutunlarinin isimlerinin duzenlenmesi</span></a>
+<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">4</span>] =<span class="st"> &quot;PDF&quot;</span></a>
+<a class="sourceLine" id="cb56-3" data-line-number="3"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">5</span>] =<span class="st"> &quot;NDF&quot;</span></a>
+<a class="sourceLine" id="cb56-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb56-5" data-line-number="5"><span class="co"># tarih ve saatin POSIX formatina cevrilmesi</span></a>
+<a class="sourceLine" id="cb56-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Tarih_Yeni =</span> </a>
+<a class="sourceLine" id="cb56-7" data-line-number="7">                              <span class="kw">as.POSIXct</span>(ptfsmf<span class="op">$</span>Tarih,<span class="dt">format=</span><span class="st">&quot;%d.%m.%y %H:%M&quot;</span>, <span class="st">&quot;GMT&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-8" data-line-number="8"><span class="st">                     </span><span class="kw">select</span>(Tarih_Yeni, PTF, SMF, PDF, NDF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-9" data-line-number="9"><span class="st">                     </span><span class="kw">rename</span>(<span class="dt">Tarih =</span> Tarih_Yeni)</a>
+<a class="sourceLine" id="cb56-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb56-11" data-line-number="11"><span class="co"># geri kalan 4 sutunun numeric classina cevrilmesi</span></a>
+<a class="sourceLine" id="cb56-12" data-line-number="12">ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)],</a>
+<a class="sourceLine" id="cb56-13" data-line-number="13">                          <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, x))))</a></code></pre></div>
 </div>
 <div id="kaynakça" class="section level2 unnumbered">
 <h2>Kaynakça</h2>
