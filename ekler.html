@@ -21,7 +21,7 @@
   
   
 
-<meta name="author" content="" />
+<meta name="author" content="En Son Güncelleme: 22.01.2020" />
 
 
 
@@ -132,8 +132,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#r-ve-rstudionun-indirilmesi"><i class="fa fa-check"></i><b>1.2.1</b> R ve RStudio’nun İndirilmesi</a></li>
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#kurulumun-test-edilmesi"><i class="fa fa-check"></i><b>1.2.2</b> Kurulumun Test Edilmesi</a></li>
 <li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#ilk-r-script-dosyasının-oluşturulması"><i class="fa fa-check"></i><b>1.2.3</b> İlk R Script Dosyasının Oluşturulması</a></li>
-<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#gerekli-paketlerin-indirilip-yüklenmesi"><i class="fa fa-check"></i><b>1.2.4</b> Gerekli Paketlerin İndirilip Yüklenmesi</a></li>
-<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2.5</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#rda-paketler-hakkında"><i class="fa fa-check"></i><b>1.2.4</b> R’da Paketler Hakkında</a></li>
+<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#gerekli-paketlerin-indirilip-yüklenmesi"><i class="fa fa-check"></i><b>1.2.5</b> Gerekli Paketlerin İndirilip Yüklenmesi</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#veriseti"><i class="fa fa-check"></i><b>1.3</b> Dökümanda Kullanılan Veri Seti</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#veri-setine-ilk-bakış"><i class="fa fa-check"></i><b>1.3.1</b> Veri Setine İlk Bakış</a></li>
@@ -188,7 +188,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><em>Baran Doğru</em></li>
 </ul>
-<p>Baran Doğru, Boğaziçi Üniversitesi Endüstri Mühendisliği 3. sınıf öğrencisidir. Veri bilimine büyük ilgi duyan Baran Doğru Algopoly’de staj yaptığı dönemde bu dökumanın oluşturulmasında büyük pay sahibi olmuştur. Kendisine ulaşmak için <a href="https://www.linkedin.com/in/barandogru/">LinkedIn</a> hesabını ziyaret edebilirsiniz.</p>
+<p>Baran Doğru, Boğaziçi Üniversitesi Endüstri Mühendisliği 3. sınıf öğrencisidir. Veri bilimine büyük ilgi duyan Baran Doğru Algopoly’de staj yaptığı dönemde bu dökumanın oluşturulmasında büyük pay sahibi olmuştur. Kendisine ulaşmak için <a href="https://www.linkedin.com/in/barandogru/" target="_blank">LinkedIn</a> hesabını ziyaret edebilirsiniz.</p>
+<!-- * *Selçuk Can Güven*  -->
+<!-- Selçuk Can Güven, Algopoly şirketinde İş Geliştirme Direktörü olarak kariyerine devam etmektedir. Bu dökümanın sektöre sunulabilir ve eğitim verilebilir hale getirilmesinde büyük katkıları olmuştur. Kendisine ulaşmak için [LinkedIn][LinkedIn2] hesabını ziyaret edebilirsiniz. -->
 </div>
 <div id="rstudio-cloudda-çalışma" class="section level2 unnumbered">
 <h2>RStudio Cloud’da Çalışma</h2>
@@ -218,28 +220,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="veri-seti-düzenlemeleri" class="section level2 unnumbered">
 <h2>Veri Seti Düzenlemeleri</h2>
 <p>Bu bölümde ilgilenenler için veri setinin ham hali elde edildikten sonra <a href="dplyr-ile-veri-manipülasyonu.html#dplyr-ile-veri-manipülasyonu">dplyr ile Veri Manipülasyonu</a> bölümünde kullanılan haline dönüştürmek için gereken kodlar paylaşılacaktır.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="co"># pozitif ve negatif dengesizlik sutunlarinin isimlerinin duzenlenmesi</span></a>
-<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">4</span>] =<span class="st"> &quot;PDF&quot;</span></a>
-<a class="sourceLine" id="cb56-3" data-line-number="3"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">5</span>] =<span class="st"> &quot;NDF&quot;</span></a>
-<a class="sourceLine" id="cb56-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb56-5" data-line-number="5"><span class="co"># tarih ve saatin POSIX formatina cevrilmesi</span></a>
-<a class="sourceLine" id="cb56-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Tarih_Yeni =</span> </a>
-<a class="sourceLine" id="cb56-7" data-line-number="7">                              <span class="kw">as.POSIXct</span>(ptfsmf<span class="op">$</span>Tarih,<span class="dt">format=</span><span class="st">&quot;%d.%m.%y %H:%M&quot;</span>, <span class="st">&quot;GMT&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb56-8" data-line-number="8"><span class="st">                     </span><span class="kw">select</span>(Tarih_Yeni, PTF, SMF, PDF, NDF) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb56-9" data-line-number="9"><span class="st">                     </span><span class="kw">rename</span>(<span class="dt">Tarih =</span> Tarih_Yeni)</a>
-<a class="sourceLine" id="cb56-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb56-11" data-line-number="11"><span class="co"># geri kalan 4 sutunun numeric classina cevrilmesi</span></a>
-<a class="sourceLine" id="cb56-12" data-line-number="12">ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)],</a>
-<a class="sourceLine" id="cb56-13" data-line-number="13">                          <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, x))))</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># pozitif ve negatif dengesizlik sutunlarinin isimlerinin duzenlenmesi</span></a>
+<a class="sourceLine" id="cb66-2" data-line-number="2"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">4</span>] =<span class="st"> &quot;PDF&quot;</span></a>
+<a class="sourceLine" id="cb66-3" data-line-number="3"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">5</span>] =<span class="st"> &quot;NDF&quot;</span></a>
+<a class="sourceLine" id="cb66-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb66-5" data-line-number="5"><span class="co"># tarih ve saatin POSIX formatina cevrilmesi</span></a>
+<a class="sourceLine" id="cb66-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Tarih_Yeni =</span> </a>
+<a class="sourceLine" id="cb66-7" data-line-number="7">                              <span class="kw">as.POSIXct</span>(ptfsmf<span class="op">$</span>Tarih,<span class="dt">format=</span><span class="st">&quot;%d.%m.%y %H:%M&quot;</span>, <span class="st">&quot;GMT&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb66-8" data-line-number="8"><span class="st">                     </span><span class="kw">select</span>(Tarih_Yeni, PTF, SMF, PDF, NDF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb66-9" data-line-number="9"><span class="st">                     </span><span class="kw">rename</span>(<span class="dt">Tarih =</span> Tarih_Yeni)</a>
+<a class="sourceLine" id="cb66-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb66-11" data-line-number="11"><span class="co"># geri kalan 4 sutunun numeric classina cevrilmesi</span></a>
+<a class="sourceLine" id="cb66-12" data-line-number="12">ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)],</a>
+<a class="sourceLine" id="cb66-13" data-line-number="13">                          <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, x))))</a></code></pre></div>
 </div>
 <div id="kaynakça" class="section level2 unnumbered">
 <h2>Kaynakça</h2>
 <ul>
-<li><p>dplyr Paketi : <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr CheatSheet</a></p></li>
-<li><p>ggplot2 Paketi : <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot2 Cheatsheet</a></p></li>
-<li><p>Bookdown Paketi ile Kitap Oluşturma : <a href="https://bookdown.org/yihui/bookdown/">bookdown</a></p></li>
-<li><p>Veri Seti : <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml">EPİAŞ Raporlama Sayfası</a></p></li>
-<li><p>Piyasa Hakkında : <a href="https://www.teias.gov.tr/tr/yayinlar-raporlar/piyasa-raporlari">Türkiye Elektrik Piyasası</a></p></li>
+<li><p>dplyr Paketi : <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" target="_blank">dplyr CheatSheet</a></p></li>
+<li><p>ggplot2 Paketi : <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" target="_blank">ggplot2 Cheatsheet</a></p></li>
+<li><p>Bookdown Paketi ile Kitap Oluşturma : <a href="https://bookdown.org/yihui/bookdown/" target="_blank">bookdown</a></p></li>
+<li><p>Veri Seti : <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml" target="_blank">EPİAŞ Raporlama Sayfası</a></p></li>
+<li><p>Piyasa Hakkında : <a href="https://www.epias.com.tr/" target="_blank">Türkiye Elektrik Piyasası</a></p></li>
 </ul>
 
 </div>

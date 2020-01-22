@@ -21,7 +21,7 @@
   
   
 
-<meta name="author" content="" />
+<meta name="author" content="En Son Güncelleme: 22.01.2020" />
 
 
 
@@ -132,8 +132,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#r-ve-rstudionun-indirilmesi"><i class="fa fa-check"></i><b>1.2.1</b> R ve RStudio’nun İndirilmesi</a></li>
 <li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#kurulumun-test-edilmesi"><i class="fa fa-check"></i><b>1.2.2</b> Kurulumun Test Edilmesi</a></li>
 <li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#ilk-r-script-dosyasının-oluşturulması"><i class="fa fa-check"></i><b>1.2.3</b> İlk R Script Dosyasının Oluşturulması</a></li>
-<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#gerekli-paketlerin-indirilip-yüklenmesi"><i class="fa fa-check"></i><b>1.2.4</b> Gerekli Paketlerin İndirilip Yüklenmesi</a></li>
-<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#rstudio-cloud"><i class="fa fa-check"></i><b>1.2.5</b> RStudio Cloud</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#rda-paketler-hakkında"><i class="fa fa-check"></i><b>1.2.4</b> R’da Paketler Hakkında</a></li>
+<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#gerekli-paketlerin-indirilip-yüklenmesi"><i class="fa fa-check"></i><b>1.2.5</b> Gerekli Paketlerin İndirilip Yüklenmesi</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#veriseti"><i class="fa fa-check"></i><b>1.3</b> Dökümanda Kullanılan Veri Seti</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#veri-setine-ilk-bakış"><i class="fa fa-check"></i><b>1.3.1</b> Veri Setine İlk Bakış</a></li>
@@ -183,6 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">R İLE ENERJİ PİYASASI VERİ ANALİZİ EL KİTABI</h1>
+<p class="author"><em><em>En Son Güncelleme: 22.01.2020</em></em></p>
 </div>
 <div id="giriş" class="section level1">
 <h1><span class="header-section-number">1</span> Giriş</h1>
@@ -194,22 +195,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.2</span> Kurulum</h2>
 <div id="r-ve-rstudionun-indirilmesi" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> R ve RStudio’nun İndirilmesi</h3>
-<p>Öncelikle ücretsiz bir istatistiksel programlama dili olan R’ın yüklenmesi gerekiyor. R’ı indirmek için <a href="https://cran.rstudio.com/" class="uri">https://cran.rstudio.com/</a> sitesine ilerleyiniz ve işletim sisteminize uygun olan versiyonuna tıklayarak indirmeyi başlatınız.</p>
-<p>Daha sonra güçlü bir kullanıcı arayüzü olan RStudio’nun indirilmesi gerekiyor. Onun için de <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a> linkini kullanabilirsiniz. İndirme tamamlandıktan sonra direktifler takip edilerek RStudio kurulumu da tamamlanmış olacaktır.</p>
+<p>Öncelikle ücretsiz bir istatistiksel programlama dili olan R’ın yüklenmesi gerekiyor. R’ı indirmek için <a href="https://cran.rstudio.com/" target="_blank">https://cran.rstudio.com/</a> sitesine ilerleyiniz ve işletim sisteminize uygun olan versiyonuna tıklayarak indirmeyi başlatınız.</p>
+<p>Daha sonra güçlü bir kullanıcı arayüzü olan RStudio’nun indirilmesi gerekiyor. Onun için de <a href="https://rstudio.com/products/rstudio/download/" target="_blank">https://rstudio.com/products/rstudio/download/</a> linkini kullanabilirsiniz. İndirme tamamlandıktan sonra direktifler takip edilerek RStudio kurulumu da tamamlanmış olacaktır.</p>
+<blockquote>
+<p>Eğer bütün bu indirmeleri yapmak istemezseniz ise, yine bir RStudio ürünü olan tamamen ücretsiz ve herhangi bir indirmeye ihtiyaç duymayan çevrimiçi platform RStudio Cloud uygulamasını ziyaret edebilirsiniz. Bu işlemlerin nasıl yapılacağının anlatıldığı <a href="ekler.html#rstudio-cloudda-çalışma">RStudio Cloud’da Çalışma</a> bölümüne göz atabilirsiniz.</p>
+</blockquote>
 </div>
 <div id="kurulumun-test-edilmesi" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Kurulumun Test Edilmesi</h3>
-<p>Kurulumlar tamamlandıktan sonra sisteminizin çalıştığından emin olmak adına RStudio’yu açın ve Konsol veya “Console” yazan yere tıklayarak basit bir kod yazın. Örneğin <code>x &lt;- 3 + 4</code> yazın ve <code>ENTER</code>’a tıklayın. Herhangi bir hata almadığınızdan emin olduğunuzda bir sonraki bölüme geçebilirsiniz.</p>
+<p>Kurulumlar tamamlandıktan sonra sisteminizin çalıştığından emin olmak adına RStudio’yu açın ve Konsol veya “Console” yazan yere tıklayarak basit bir kod yazın. Örneğin <code>x = 3 + 4</code> yazın ve <code>ENTER</code>’a tıklayın. Burada <code>x</code> objesine bir toplama işleminin sonucu atanmış oldu. Bu objenin <code>Environment</code> (<code>Ortam</code>) penceresi altında <code>7</code> değeriyle belirdiğine dikkat ediniz.</p>
+<p>Herhangi bir hata almadığınızdan emin olduğunuzda bir sonraki bölüme geçebilirsiniz.</p>
 </div>
 <div id="ilk-r-script-dosyasının-oluşturulması" class="section level3">
 <h3><span class="header-section-number">1.2.3</span> İlk R Script Dosyasının Oluşturulması</h3>
 <p>Yazılan kodları ileride inceleyebilmek, üzerinde değişiklikler yapabilmek için R Script olarak adlandırılan belgeler üzerinde çalışmanız daha mantıklı olacaktır. Dikkat edeceğiniz üzere yukarıda konsola yazdığınız <code>x &lt;- 3 + 4</code> komutu üzerinde bir değişiklik yapamayacaksınız. Yeni bir R Script belgesi yaratmak için ise RStudio’nun üstünde göreceğiniz panelden “File”, “New File” ve “R Script” sırasıyla seçin. İlk R belgenizin açıldığını göreceksiniz.</p>
 <p>R Script’lerde her bir satır kodu ayrı ayrı çalıştırmanız gerekiyor. Bunun için de üzerinde olduğunuz satırı çalıştırmak için Windows kullanıcısı iseniz <code>CTRL+ENTER</code>, MacOS kullanıyorsanız <code>CMD+ENTER</code> kombinasyonlarını kullanmalısınız.</p>
 </div>
+<div id="rda-paketler-hakkında" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> R’da Paketler Hakkında</h3>
+<p>R paketleri fonksiyonlar, hazır kodlar veya veri setleri içerebilen farklı amaçlar göz önünde bulundurularak oluşturulmuş paketlerdir. R programlama dilini ilk indirdiğinizde birçok paket beraberinde indirilmiş şekildedir ve eğer kullanmak istediğiniz paket bu paketler arasında değilse onu da indirmek ve yüklemek oldukça basittir.</p>
+</div>
 <div id="gerekli-paketlerin-indirilip-yüklenmesi" class="section level3">
-<h3><span class="header-section-number">1.2.4</span> Gerekli Paketlerin İndirilip Yüklenmesi</h3>
-<p>Bu bölümde kitabın ilerleyen aşamalarında kullanılacak paketlerin indirilmesi ve yüklenmesi tamamlanacaktır. Veri manipülasyonu için <code>dplyr</code> paketi, veri görselleştirmesi için <code>ggplot2</code> paketi ve tarih - zaman verilerinin manipülasyonları için ise <code>lubridate</code> paketi kullanılacaktır. Paketleri indirmek için aşağıdaki kodu ilk R Script belgenizde çalıştırabilirsiniz. (İndirme ile alakalı kodları bir kere çalıştırmanız yetecektir.)</p>
-<p>R’da her bir satırı ayrı ayrı çalıştırmanız gerektiğine dikkat ediniz. İndirmeler internet bağlantınızın durumuna göre 1-5 dakika arası sürebilir.</p>
+<h3><span class="header-section-number">1.2.5</span> Gerekli Paketlerin İndirilip Yüklenmesi</h3>
+<p>Bu bölümde kitabın ilerleyen aşamalarında kullanılacak paketlerin indirilmesi ve yüklenmesi tamamlanacaktır.</p>
+<ul>
+<li>Veri manipülasyonu için <code>dplyr</code>,</li>
+<li>Veri görselleştirmesi için <code>ggplot2</code>,</li>
+<li>Tarih - zaman verilerinin manipülasyonları için ise <code>lubridate</code>,</li>
+<li>Daha ileri seviye veri manipülasyonları için <code>tidyr</code>,</li>
+</ul>
+<p>paketleri kullanılacaktır. Paketleri indirmek için aşağıdaki kodu ilk R Script belgenizde çalıştırabilirsiniz. (İndirme ile alakalı kodları bir kere çalıştırmanız yetecektir.)</p>
+<p>R’da her bir satırı ayrı ayrı çalıştırmanız gerektiğine dikkat ediniz. (Üzerinde olduğunuz satırı çalıştırmak için Windows kullanıcısı iseniz <code>CTRL+ENTER</code>, MacOS kullanıyorsanız <code>CMD+ENTER</code> kombinasyonlarını kullanmalısınız.) İndirmeler internet bağlantınızın durumuna göre 1-5 dakika arası sürebilir.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;lubridate&quot;</span>)</a>
@@ -220,10 +236,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">library</span>(lubridate)</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">library</span>(tidyr)</a></code></pre></div>
 <p>Yüklemeler de tamamlandığında bu kitapta kullanılan veri setinin nasıl indirileceğini anlatan kısma geçmeye hazırsınız.</p>
-</div>
-<div id="rstudio-cloud" class="section level3">
-<h3><span class="header-section-number">1.2.5</span> RStudio Cloud</h3>
-<p>Eğer bütün bu indirmeleri yapmak istemezseniz ise, yine bir RStudio ürünü olan tamamen ücretsiz ve herhangi bir indirmeye ihtiyaç duymayan çevrimiçi platform RStudio Cloud uygulamasını ziyaret edebilirsiniz. Bu işlemlerin nasıl yapılacağının anlatıldığı <a href="ekler.html#rstudio-cloudda-çalışma">RStudio Cloud’da Çalışma</a> bölümüne göz atabilirsiniz.</p>
 </div>
 </div>
 <div id="veriseti" class="section level2">
@@ -243,12 +255,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>Negatif Dengesizlik Fiyatı (NDF)</em>: Sistemde enerji açığı olduğunda enerjinin normalden daha pahalıya alınmasını sağlayan fiyat değeri olarak düşünülebilir. Gelecekte buna benzer dengesizliklerin oluşmasına engel olma amaçlı bir nevi ceza olarak düşünülebilecek Negatif Dengesizlik Fiyatı aşağıdaki gibi hesaplanır.</li>
 </ul>
 <p><span class="math display">\[ NDF (TL/MWH) = 1.03*maks(PTF,SMF) \]</span></p>
+<p>Daha detaylı bilgi için <a href="https://www.epias.com.tr/spot-elektrik-piyasasi" target="_blank">EPİAŞ</a> sitesini ziyaret edebilirsiniz.</p>
 </div>
 <div id="veri-setinin-indirilmesi" class="section level3">
 <h3><span class="header-section-number">1.3.2</span> Veri Setinin İndirilmesi</h3>
 <p>Bu dökümanda kullanılan veri seti EPİAŞ’ın Raporlama Sayfasından elde edilen 01.01.2019 - 31.12.2019 tarihli Piyasa Takas Fiyatı (PTF) - Sistem Marjinal Fiyatı (SMF) verisidir.</p>
-<p>Veri setinin ham haline <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml" title="ptfSmf">EPİAŞ’ın Raporlama Sayfası</a> ’ndan ya da <a href="https://github.com/acikenerji/verianalizi101/blob/master/ptf-smf.xls?raw=true">buraya</a> tıklayarak ulaşabilirsiniz.<br />
-Bu veri setini direkt olarak RStudio içerisinden indirmek de ayrıca mümkün. Bu işlemi ise aşağıdaki kutuda yer alan adimlari izleyerek gerçekleştirebilirsiniz.</p>
+<p>Veri setinin ham haline <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml" target="_blank" title="ptfSmf">EPİAŞ’ın Raporlama Sayfası</a> ’ndan ya da <a href="https://github.com/acikenerji/verianalizi101/blob/master/ptf-smf.xls?raw=true" target="_blank">buraya</a> tıklayarak ulaşabilirsiniz.<br />
+Bu veri setini direkt olarak RStudio içerisinden indirmek de ayrıca mümkün. Bu işlemi ise aşağıdaki kutuda yer alan adımlari izleyerek gerçekleştirebilirsiniz.</p>
 <ul>
 <li>Excel dosyasını okumayı sağlayacak <code>readxl</code> paketinin indirilmesi.</li>
 </ul>
@@ -260,13 +273,18 @@ Bu veri setini direkt olarak RStudio içerisinden indirmek de ayrıca mümkün. 
 <ul>
 <li>Ham verinin okunması ve <code>ptfsmf</code> objesine atanması.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">download.file</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/master/ptf-smf.xls?raw=true&quot;</span>,</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">              <span class="dt">destfile=</span><span class="st">&quot;ptf-smf.xls&quot;</span>)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">ptfsmf &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;ptf-smf.xls&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">download.file</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/master/ptf-smf.xls?raw=true&quot;</span>,<span class="dt">destfile=</span><span class="st">&quot;ptf-smf.xls&quot;</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">ptfsmf &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;ptf-smf.xls&quot;</span>)</a></code></pre></div>
+<blockquote>
+<p>Burada <code>ptfsmf</code> objesi R’ın pek çok obje tipinden biri olan “Data Frame” tipindedir. Data Frame’ler şekilsel anlamda matrislere benzese de birden çok veri tipini depolayabilmeleri açısından oldukça yararlıdır. Örneğin <code>ptfsmf</code> objesinin “Tarih” sütunu bir tarih tipi olan <code>POSIXct</code> tipinde, geri kalan sütunlar ise <code>numeric</code> tipindedir. Bu tiplere hakim olmanız bu döküman için gerekli değildir. Temel olarak bilinmesi gereken nokta, <code>ptfsmf</code> objesinin elde ettiğimiz tabloyu depolayan obje olduğudur.</p>
+</blockquote>
 <p>Bu veri setinin ham halinin örneklerde rahatlıkla kullanılabilmesi adına bazı format ve isim değişlikleri yapılmıştır ve bu yazının kapsamını aştığından bu dönüşümlerin nasıl yapıldığı anlatılmayacaktır. İlgilenenler için ise bu kodlar <a href="ekler.html#veri-seti-düzenlemeleri">Veri Seti Düzenlemeleri</a> kısmında bulunabilir.</p>
 <p>Veri setinin örneklere uygun şekilde hazırlanmış haline ise aşağıdaki kodu R’da çalıştırarak ulaşabilirsiniz.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">ptfsmf &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">url</span>(<span class="st">&quot;https://github.com/acikenerji/verianalizi101/blob/master/duzenlenmis_ptfsmf.rds?raw=true&quot;</span>))</a></code></pre></div>
-<p>Bu aşamada veri seti okunduktan sonra geri kalan bütün hazırlıklar her bölümde ayrı ayrı detaylı bir şekilde anlatılacaktır. Örneklerle ilgilenmeye başlamadan önce çalışma dizininizin doğru yerde belirlendiğinden emin olmak adına <code>getwd()</code> komutunu konsola yazarak üzerinde çalıştığınız belgenin bilgisayarınızda kayıtlı olduğu yerle uyumlu olduğunu kontrol edebilirsiniz.</p>
+<p>Bu aşamada veri seti okunduktan sonra geri kalan bütün hazırlıklar her bölümde ayrı ayrı detaylı bir şekilde anlatılacaktır.</p>
+<blockquote>
+<p>Örneklerle ilgilenmeye başlamadan önce çalışma dizininizin bilgisayarınızın hangi bölgesi olduğunu öğrenmek için <code>getwd()</code> komutunu konsola yazarak çalıştırabilirsiniz. Bir başka önemli nokta ise indirilen bir belge, R Script belgesi içerisinde kullanılacaksa bu belgenin <code>getwd()</code> komutunun vereceği sonuçla aynı çalışma dizininde olması gerekmektedir.</p>
+</blockquote>
 
 </div>
 </div>
