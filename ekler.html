@@ -21,7 +21,7 @@
   
   
 
-<meta name="author" content="En Son Güncelleme: 22.01.2020" />
+<meta name="author" content="Son Güncelleme: 27.01.2020" />
 
 
 
@@ -153,6 +153,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.5" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#group_bysummarise"><i class="fa fa-check"></i><b>2.2.5</b> <code>group_by</code>/<code>summarise</code></a></li>
 <li class="chapter" data-level="2.2.6" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#distinct"><i class="fa fa-check"></i><b>2.2.6</b> <code>distinct</code></a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#örnekler"><i class="fa fa-check"></i><b>2.3</b> Örnekler</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#basit-seviye"><i class="fa fa-check"></i><b>2.3.1</b> Basit Seviye</a></li>
+<li class="chapter" data-level="2.3.2" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#ileri-seviye"><i class="fa fa-check"></i><b>2.3.2</b> İleri Seviye</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ggplot2-ile-veri-görselleştirme.html"><a href="ggplot2-ile-veri-görselleştirme.html"><i class="fa fa-check"></i><b>3</b> ggplot2 ile Veri Görselleştirme</a><ul>
 <li class="chapter" data-level="3.1" data-path="ggplot2-ile-veri-görselleştirme.html"><a href="ggplot2-ile-veri-görselleştirme.html#hazırlıklar"><i class="fa fa-check"></i><b>3.1</b> Hazırlıklar</a></li>
@@ -192,8 +196,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>Baran Doğru</em></li>
 </ul>
 <p>Baran Doğru, Boğaziçi Üniversitesi Endüstri Mühendisliği 3. sınıf öğrencisidir. Veri bilimine büyük ilgi duyan Baran Doğru Algopoly’de staj yaptığı dönemde bu dökumanın oluşturulmasında büyük pay sahibi olmuştur. Kendisine ulaşmak için <a href="https://www.linkedin.com/in/barandogru/" target="_blank">LinkedIn</a> hesabını ziyaret edebilirsiniz.</p>
-<!-- * *Selçuk Can Güven*  -->
-<!-- Selçuk Can Güven, Algopoly şirketinde İş Geliştirme Direktörü olarak kariyerine devam etmektedir. Bu dökümanın sektöre sunulabilir ve eğitim verilebilir hale getirilmesinde büyük katkıları olmuştur. Kendisine ulaşmak için [LinkedIn][LinkedIn2] hesabını ziyaret edebilirsiniz. -->
+<ul>
+<li><em>Selçuk Can Güven</em></li>
+</ul>
+<p>Selçuk Can Güven, Algopoly şirketinde İş Geliştirme Direktörü olarak kariyerine devam etmektedir. Bu dökümanın sektöre sunulabilir ve eğitim verilebilir hale getirilmesinde büyük katkıları olmuştur. Kendisine ulaşmak için <a href="https://www.linkedin.com/in/scguven/" target="_blank">LinkedIn</a> hesabını ziyaret edebilirsiniz.</p>
 </div>
 <div id="rstudio-cloudda-çalışma" class="section level2 unnumbered">
 <h2>RStudio Cloud’da Çalışma</h2>
@@ -223,19 +229,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="veri-seti-düzenlemeleri" class="section level2 unnumbered">
 <h2>Veri Seti Düzenlemeleri</h2>
 <p>Bu bölümde ilgilenenler için veri setinin ham hali elde edildikten sonra <a href="dplyr-ile-veri-manipülasyonu.html#dplyr-ile-veri-manipülasyonu">dplyr ile Veri Manipülasyonu</a> bölümünde kullanılan haline dönüştürmek için gereken kodlar paylaşılacaktır.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># pozitif ve negatif dengesizlik sutunlarinin isimlerinin duzenlenmesi</span></a>
-<a class="sourceLine" id="cb66-2" data-line-number="2"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">4</span>] =<span class="st"> &quot;PDF&quot;</span></a>
-<a class="sourceLine" id="cb66-3" data-line-number="3"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">5</span>] =<span class="st"> &quot;NDF&quot;</span></a>
-<a class="sourceLine" id="cb66-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb66-5" data-line-number="5"><span class="co"># tarih ve saatin POSIX formatina cevrilmesi</span></a>
-<a class="sourceLine" id="cb66-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Tarih_Yeni =</span> </a>
-<a class="sourceLine" id="cb66-7" data-line-number="7">                              <span class="kw">as.POSIXct</span>(ptfsmf<span class="op">$</span>Tarih,<span class="dt">format=</span><span class="st">&quot;%d.%m.%y %H:%M&quot;</span>, <span class="st">&quot;GMT&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb66-8" data-line-number="8"><span class="st">                     </span><span class="kw">select</span>(Tarih_Yeni, PTF, SMF, PDF, NDF) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb66-9" data-line-number="9"><span class="st">                     </span><span class="kw">rename</span>(<span class="dt">Tarih =</span> Tarih_Yeni)</a>
-<a class="sourceLine" id="cb66-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb66-11" data-line-number="11"><span class="co"># geri kalan 4 sutunun numeric classina cevrilmesi</span></a>
-<a class="sourceLine" id="cb66-12" data-line-number="12">ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)],</a>
-<a class="sourceLine" id="cb66-13" data-line-number="13">                          <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, x))))</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="co"># pozitif ve negatif dengesizlik sutunlarinin isimlerinin duzenlenmesi</span></a>
+<a class="sourceLine" id="cb79-2" data-line-number="2"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">4</span>] =<span class="st"> &quot;PDF&quot;</span></a>
+<a class="sourceLine" id="cb79-3" data-line-number="3"><span class="kw">colnames</span>(ptfsmf)[<span class="dv">5</span>] =<span class="st"> &quot;NDF&quot;</span></a>
+<a class="sourceLine" id="cb79-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb79-5" data-line-number="5"><span class="co"># tarih ve saatin POSIX formatina cevrilmesi</span></a>
+<a class="sourceLine" id="cb79-6" data-line-number="6">ptfsmf &lt;-<span class="st"> </span>ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Tarih_Yeni =</span> </a>
+<a class="sourceLine" id="cb79-7" data-line-number="7">                              <span class="kw">as.POSIXct</span>(ptfsmf<span class="op">$</span>Tarih,<span class="dt">format=</span><span class="st">&quot;%d.%m.%y %H:%M&quot;</span>, <span class="st">&quot;GMT&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb79-8" data-line-number="8"><span class="st">                     </span><span class="kw">select</span>(Tarih_Yeni, PTF, SMF, PDF, NDF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb79-9" data-line-number="9"><span class="st">                     </span><span class="kw">rename</span>(<span class="dt">Tarih =</span> Tarih_Yeni)</a>
+<a class="sourceLine" id="cb79-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb79-11" data-line-number="11"><span class="co"># geri kalan 4 sutunun numeric classina cevrilmesi</span></a>
+<a class="sourceLine" id="cb79-12" data-line-number="12">ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">lapply</span>(ptfsmf[,<span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)],</a>
+<a class="sourceLine" id="cb79-13" data-line-number="13">                          <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, x))))</a></code></pre></div>
 </div>
 <div id="kaynakça" class="section level2 unnumbered">
 <h2>Kaynakça</h2>
@@ -246,6 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Veri Seti : <a href="https://rapor.epias.com.tr/rapor/xhtml/ptfSmfListeleme.xhtml" target="_blank">EPİAŞ Raporlama Sayfası</a></p></li>
 <li><p>Piyasa Hakkında : <a href="https://www.epias.com.tr/" target="_blank">Türkiye Elektrik Piyasası</a></p></li>
 </ul>
+<p><a href="https://www.linkedin.com/in/scguven" class="uri">https://www.linkedin.com/in/scguven</a></p>
 
 </div>
 </div>

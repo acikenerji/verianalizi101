@@ -21,7 +21,7 @@
   
   
 
-<meta name="author" content="En Son Güncelleme: 22.01.2020" />
+<meta name="author" content="Son Güncelleme: 27.01.2020" />
 
 
 
@@ -152,6 +152,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.4" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#mutatetransmute"><i class="fa fa-check"></i><b>2.2.4</b> <code>mutate</code>/<code>transmute</code></a></li>
 <li class="chapter" data-level="2.2.5" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#group_bysummarise"><i class="fa fa-check"></i><b>2.2.5</b> <code>group_by</code>/<code>summarise</code></a></li>
 <li class="chapter" data-level="2.2.6" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#distinct"><i class="fa fa-check"></i><b>2.2.6</b> <code>distinct</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#örnekler"><i class="fa fa-check"></i><b>2.3</b> Örnekler</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#basit-seviye"><i class="fa fa-check"></i><b>2.3.1</b> Basit Seviye</a></li>
+<li class="chapter" data-level="2.3.2" data-path="dplyr-ile-veri-manipülasyonu.html"><a href="dplyr-ile-veri-manipülasyonu.html#ileri-seviye"><i class="fa fa-check"></i><b>2.3.2</b> İleri Seviye</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ggplot2-ile-veri-görselleştirme.html"><a href="ggplot2-ile-veri-görselleştirme.html"><i class="fa fa-check"></i><b>3</b> ggplot2 ile Veri Görselleştirme</a><ul>
@@ -547,6 +551,127 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 ## 10 2019-01-10 00:00:00   4.42   0.1   0.1    4.55 2019-01-10
 ## # … with 355 more rows</code></pre>
 <p>Burada gözlem sayısının 365’e düştüğüne dikkat edilmelidir.</p>
+</div>
+</div>
+<div id="örnekler" class="section level2">
+<h2><span class="header-section-number">2.3</span> Örnekler</h2>
+<p>Bu bölümde, kolaydan zora örnekler ele alınacak ve <code>dplyr</code> paketi daha da pekiştirilmeye çalışılacaktır. Soruların cevapları hemen soruların altında olacaktır ancak cevaplara göz atmadan önce soruları çözmeye çalışmanızı şiddetle tavsiye ediyoruz.</p>
+<blockquote>
+<p>Devamlı bir gelişim gösteren kitabımıza yeni örnekler eklemeyi sürdüreceğiz.</p>
+</blockquote>
+<div id="basit-seviye" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Basit Seviye</h3>
+<p><strong>1. Piyasa Takas Fiyatı (PTF) verisinin aylık ortalama, medyan, maksimum ve minimum değerlerini bulunuz.</strong></p>
+<p><strong>İpucu: <code>lubridate</code> paketinin <code>month()</code> fonksiyonunu kullanabilirsiniz.</strong></p>
+<p>Sonuç olarak şu şekilde bir tablo ortaya çıkmalı,</p>
+<pre><code>## # A tibble: 12 x 5
+##       Ay   ORT   MED  MAKS   MIN
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1  223.  258.  327.  0.5 
+##  2     2  257.  275.  330.  0   
+##  3     3  256.  296.  332.  0   
+##  4     4  187.  200.  309.  0   
+##  5     5  196.  220.  317.  0   
+##  6     6  221.  275.  500   0   
+##  7     7  305.  315.  385  50.0 
+##  8     8  298.  310.  330.  0.99
+##  9     9  298.  307.  325. 45   
+## 10    10  292.  309.  338  10   
+## 11    11  298.  313.  397. 50   
+## 12    12  291.  314.  338. 45.0</code></pre>
+<p>Cevap ise şu şekilde,</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ay=</span><span class="kw">month</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Ay) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ORT =</span> <span class="kw">mean</span>(PTF), <span class="dt">MED =</span> <span class="kw">median</span>(PTF), <span class="dt">MAKS =</span> <span class="kw">max</span>(PTF), <span class="dt">MIN =</span> <span class="kw">min</span>(PTF))</a></code></pre></div>
+<p><strong>2. Yaz aylarının (Haziran, Temmuz, Ağustos ayları) akşam saatlerinde (18-22 arası, bu değerler dahil olmak üzere) ortaya çıkan günlük toplam NDF değerlerini bulunuz.</strong></p>
+<p><strong>İpucu: Saatleri bulmak için <code>lubridate</code> paketinin <code>hour()</code> fonksiyonunu, tarihi güne çevirmek için ise yine aynı paketten <code>as_date()</code> fonksiyonunu kullanabilirsiniz.</strong></p>
+<p>Sonuç olarak şu şekilde bir tablo ortaya çıkmalı,</p>
+<pre><code>## # A tibble: 92 x 2
+##    Tarih        NDF
+##    &lt;date&gt;     &lt;dbl&gt;
+##  1 2019-06-01 1957 
+##  2 2019-06-02 1849.
+##  3 2019-06-03 1516.
+##  4 2019-06-04  726.
+##  5 2019-06-05 1103.
+##  6 2019-06-06 1496.
+##  7 2019-06-07 1646.
+##  8 2019-06-08 1513.
+##  9 2019-06-09 1117.
+## 10 2019-06-10 1558.
+## # … with 82 more rows</code></pre>
+<p>Cevap ise şu şekilde,</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Saat=</span><span class="kw">hour</span>(Tarih), <span class="dt">Tarih=</span><span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>((Tarih <span class="op">&gt;=</span><span class="st"> &quot;2019-06-01&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Tarih <span class="op">&lt;=</span><span class="st"> &quot;2019-08-31&quot;</span>), (Saat <span class="op">&gt;=</span><span class="st"> </span><span class="dv">18</span> <span class="op">&amp;</span><span class="st"> </span>Saat <span class="op">&lt;=</span><span class="st"> </span><span class="dv">22</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(Tarih, Saat, NDF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(Tarih) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-6" data-line-number="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">NDF =</span> <span class="kw">sum</span>(NDF))</a></code></pre></div>
+</div>
+<div id="ileri-seviye" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> İleri Seviye</h3>
+<p><strong>1. SMF/PTF oranının aylara göre en yüksek olduğu üçer gözlemi bulunuz.</strong></p>
+<p><strong>İpucu: İstediğiniz sayıda satırı seçmek için <code>slice()</code> fonksiyonunu kullanabilirsiniz. <code>slice()</code> fonksiyonunun kullanımı için <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" target="_blank">dplyr Cheatsheet</a> dökümanına göz atılabilir.</strong></p>
+<p>Sonuç olarak şu şekilde bir tablo ortaya çıkmalı,</p>
+<pre><code>## # A tibble: 36 x 3
+##    Tarih                  Ay SMF_PTF_Orani
+##    &lt;dttm&gt;              &lt;dbl&gt;         &lt;dbl&gt;
+##  1 2019-01-13 16:00:00     1          2.03
+##  2 2019-01-28 04:00:00     1          1.71
+##  3 2019-01-13 11:00:00     1          1.53
+##  4 2019-02-24 13:00:00     2         51.3 
+##  5 2019-02-10 09:00:00     2         28.4 
+##  6 2019-02-24 15:00:00     2         18.6 
+##  7 2019-03-24 17:00:00     3         15.5 
+##  8 2019-03-29 23:00:00     3         15.3 
+##  9 2019-03-24 18:00:00     3          8.25
+## 10 2019-04-21 12:00:00     4        100   
+## # … with 26 more rows</code></pre>
+<p>Cevap ise şu şekilde,</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span>(PTF <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ay =</span> <span class="kw">month</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">SMF_PTF_Orani =</span> SMF <span class="op">/</span><span class="st"> </span>PTF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(Ay) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-6" data-line-number="6"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(SMF_PTF_Orani)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-7" data-line-number="7"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-8" data-line-number="8"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-9" data-line-number="9"><span class="st">  </span><span class="kw">select</span>(Tarih, Ay, SMF_PTF_Orani)</a></code></pre></div>
+<blockquote>
+<p>Burada önemli olan bir nokta, <code>group_by()</code> fonksiyonu ile gruplanmış bir tablo ile farklı işlemlere devam edilmek isteniyorsa hata alınmaması amacıyla <code>ungroup()</code> fonksiyonunun kullanılması gerektiğidir.</p>
+</blockquote>
+<p><strong>2. Her bir günün ortalama PTF değerlerleri ile birlikte yeni bir sütunda tam bir hafta önceki ortalama PTF değerini gösteriniz.</strong></p>
+<p><strong>İpucu: Haftanın günlerini çıkarmak için <code>R</code>’ın kendi fonksiyonu olan <code>weekdays()</code> fonksiyonunu, tabloda kaydırma yapmak için ise <code>dplyr</code> paketinin <code>lag()</code> fonksiyonu kullanılabilir.</strong></p>
+<p>Sonuç olarak şu şekilde bir tablo ortaya çıkmalı (İlk 7 günün geçmiş verisi olmadığından o satırlar <code>slice()</code> fonksiyonu yardımıyla silinmiştir.),</p>
+<pre><code>## # A tibble: 716 x 4
+##    Tarih      Gün       PTF_Degisim    PTF_Degerleri
+##    &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;                  &lt;dbl&gt;
+##  1 2019-01-08 Tuesday   ÖncekiHaftaPTF          121.
+##  2 2019-01-08 Tuesday   PTF                     248.
+##  3 2019-01-09 Wednesday ÖncekiHaftaPTF          229.
+##  4 2019-01-09 Wednesday PTF                     220.
+##  5 2019-01-10 Thursday  ÖncekiHaftaPTF          239.
+##  6 2019-01-10 Thursday  PTF                     163.
+##  7 2019-01-11 Friday    ÖncekiHaftaPTF          212.
+##  8 2019-01-11 Friday    PTF                     180.
+##  9 2019-01-12 Saturday  ÖncekiHaftaPTF          244.
+## 10 2019-01-12 Saturday  PTF                     237.
+## # … with 706 more rows</code></pre>
+<p>Cevap ise şu şekilde,</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Tarih =</span> <span class="kw">as_date</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Tarih) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">PTF =</span> <span class="kw">mean</span>(PTF)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-5" data-line-number="5"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(Gün =<span class="st"> </span><span class="kw">weekdays</span>(Tarih)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(Ö<span class="dt">ncekiHaftaPTF =</span> <span class="kw">lag</span>(<span class="dt">x =</span> PTF, <span class="dt">n =</span> <span class="dv">7</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-8" data-line-number="8"><span class="st">  </span><span class="kw">select</span>(Tarih, Gün, ÖncekiHaftaPTF, PTF) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-9" data-line-number="9"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">8</span><span class="op">:</span><span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-10" data-line-number="10"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols=</span><span class="kw">c</span>(ÖncekiHaftaPTF, PTF), <span class="dt">names_to=</span><span class="st">&quot;PTF_Degisim&quot;</span>,</a>
+<a class="sourceLine" id="cb54-11" data-line-number="11">               <span class="dt">values_to=</span><span class="st">&quot;PTF_Degerleri&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-12" data-line-number="12"><span class="st">  </span><span class="kw">arrange</span>(Tarih)</a></code></pre></div>
+<p>Burada <code>tidyr</code> paketinin <code>pivot_longer()</code> fonksiyonu bulunuyor. Bu fonksiyon temel olarak geniş tabloları belirli sütunlarını bir ortak sütun içerisinde birleştirip bunu yaparken de satır sayısını birleştirilen sütun sayısı oranında artıran bir fonksiyondur.</p>
 
 </div>
 </div>
