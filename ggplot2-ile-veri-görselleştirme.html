@@ -21,7 +21,7 @@
   
   
 
-<meta name="author" content="Son Güncelleme: 27.01.2020" />
+<meta name="author" content="Son Güncelleme: 29.01.2020" />
 
 
 
@@ -377,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb77-6" data-line-number="6"><span class="st">  scale_x_discrete(limits=c(0:23)) +</span></a>
 <a class="sourceLine" id="cb77-7" data-line-number="7"><span class="st">  theme(axis.text.x = element_text(angle = 45), legend.position = &quot;</span>top<span class="st">&quot;)</span></a></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
-<p>Burada ise öneceden aşina olmadığımız <code>scale_x_discrete(limits=c(0:23))</code> komutunu görüyoruz. Bu komut sayesinde <code>x</code> ekseninde 0’dan 23’e bütün sayıları bastırabiliyoruz. (<code>scale_y_date</code> komutu bir önceki bölümde anlatılan <code>scale_y_date</code> komutuyla tamamen aynı işlevde olup <code>y</code> ekseni ile ilgilenmektedir.)</p>
+<p>Burada ise önceden aşina olmadığımız <code>scale_x_discrete(limits=c(0:23))</code> komutunu görüyoruz. Bu komut sayesinde <code>x</code> ekseninde 0’dan 23’e bütün sayıları bastırabiliyoruz. (<code>scale_y_date</code> komutu bir önceki bölümde anlatılan <code>scale_y_date</code> komutuyla tamamen aynı işlevde olup <code>y</code> ekseni ile ilgilenmektedir.)</p>
 <p>Isı grafiğinin rengi değiştirilmek istenirse ise <code>scale_fill_gradient</code> fonksiyonu içerisinde iki renk belirtilerek aralarındaki renkler kullanılabilir.</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">ggplot</span>(plot_df, <span class="kw">aes</span>(<span class="dt">x=</span>Saat, <span class="dt">y=</span>Tarih, <span class="dt">fill=</span>PTF)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb78-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_tile</span>() <span class="op">+</span></a>

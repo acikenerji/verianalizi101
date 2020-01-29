@@ -21,7 +21,7 @@
   
   
 
-<meta name="author" content="Son Güncelleme: 27.01.2020" />
+<meta name="author" content="Son Güncelleme: 29.01.2020" />
 
 
 
@@ -336,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 2019-01-01 08:00:00  34.5   0    0     35.5
 ## 10 2019-01-01 09:00:00  45.2   0    0     46.6
 ## # … with 2,443 more rows</code></pre>
-<p>Gözlem sayısının 8670’den 2453’e düştüğü görülebiliyor.</p>
+<p>Gözlem sayısının 8670’ten 2453’e düştüğü görülebiliyor.</p>
 <blockquote>
 <p>Aynı şekilde bir değerin büyüklüğü <code>&gt;</code>, küçüklük veya eşitliği <code>&lt;=</code>, büyüklük veya eşitliği <code>&gt;=</code>, eşitliği ise <code>==</code> sembolleriyle incelenebilir.</p>
 </blockquote>
@@ -431,7 +431,7 @@ sembolleri kullanılmalıdır. Örneğin Pozitif Dengesizlik Fiyatı’nın 200�
 </div>
 <div id="mutatetransmute" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> <code>mutate</code>/<code>transmute</code></h3>
-<p><code>mutate</code> fonksiyonu genellikle var olan değişkenlerle yapılan operasyonlar sonucu yeni değişkenler (sütunlar) yatarmak için kullanılır.</p>
+<p><code>mutate</code> fonksiyonu genellikle var olan değişkenlerle yapılan operasyonlar sonucu yeni değişkenler (sütunlar) yaratmak için kullanılır.</p>
 <p>Örneğin yeni bir gün sütunu eklenmek istenirse (burada <code>lubridate</code> paketinin <code>as_date()</code> fonksiyonu kullanılmıştır.),</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">ptfsmf <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(Gün =<span class="st"> </span><span class="kw">as_date</span>(Tarih))</a></code></pre></div>
 <pre><code>## # A tibble: 8,760 x 6
